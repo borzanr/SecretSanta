@@ -25,6 +25,15 @@ private val SecretSantaColors = darkColorScheme(
     onSurface = TextPrimary,
     surfaceVariant = Surface2,
     onSurfaceVariant = TextSecondary,
+    // Diálogos, bottom sheets e menus do Material 3 usam os surfaceContainer*.
+    // Sem defini-los, caem no cinza neutro padrão e destoam do violeta do app.
+    surfaceContainerLowest = Ink,
+    surfaceContainerLow = Surface1,
+    surfaceContainer = Surface1,
+    surfaceContainerHigh = Surface2,
+    surfaceContainerHighest = Surface2,
+    surfaceBright = Surface2,
+    surfaceDim = Ink,
     outline = Outline,
     error = Danger,
     onError = Ink,

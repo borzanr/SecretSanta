@@ -4,7 +4,6 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +25,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -78,6 +78,24 @@ fun PassThePhoneScreen(
     // um toque distraído aqui custaria a paciência do grupo inteiro.
     BackHandler {
         if (ready.revealed.isEmpty()) onExit() else confirmingExit = true
+    }
+
+    // O cartão **substitui** a lista em vez de ser desenhado por cima dela.
+    // Empilhados, a lista continuava viva por baixo: um toque numa área vazia do
+    // cartão abria "Você é Carla?" e trocava o par exibido sem a pessoa anterior
+    // ter escondido o dela. Fora da composição, a lista não recebe toque nem é
+    // lida por leitor de tela.
+    showing?.let { assignment ->
+        RevealCard(
+            assignment = assignment,
+            budget = group.budget,
+            wishes = group.participants.firstOrNull { it.name == assignment.receiver }?.wishes.orEmpty(),
+            onHide = {
+                showing = null
+                onRevealed(assignment.giver)
+            },
+        )
+        return
     }
 
     Scaffold(
@@ -204,17 +222,6 @@ fun PassThePhoneScreen(
         )
     }
 
-    showing?.let { assignment ->
-        RevealCard(
-            assignment = assignment,
-            budget = group.budget,
-            wishes = group.participants.firstOrNull { it.name == assignment.receiver }?.wishes.orEmpty(),
-            onHide = {
-                showing = null
-                onRevealed(assignment.giver)
-            },
-        )
-    }
 }
 
 @Composable
@@ -233,72 +240,78 @@ private fun RevealCard(
         label = "revealScale",
     )
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            // Cobre a tela por inteiro: nada da lista pode aparecer atrás.
-            .background(MaterialTheme.colorScheme.background),
-        contentAlignment = Alignment.Center,
+    // Voltar com o cartão aberto só esconde: é o gesto natural de "já vi".
+    BackHandler(onBack = onHide)
+
+    // Surface, e não Box com background: é o Surface que define a cor de
+    // conteúdo. Sem ele, os textos sem cor explícita saíam pretos sobre o fundo
+    // escuro e as sugestões de presente ficavam ilegíveis.
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background,
+        contentColor = MaterialTheme.colorScheme.onBackground,
     ) {
-        Column(
-            modifier = Modifier.padding(32.dp).scale(scale),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Text(
-                stringResource(R.string.reveal_you_got),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                assignment.receiver,
-                style = MaterialTheme.typography.displayLarge,
-                color = MaterialTheme.colorScheme.primary,
-                textAlign = TextAlign.Center,
-            )
-
-            if (budget.isNotBlank()) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Column(
+                modifier = Modifier.padding(32.dp).scale(scale),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
                 Text(
-                    stringResource(R.string.reveal_budget, budget),
+                    stringResource(R.string.reveal_you_got),
                     style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.tertiary,
-                )
-            }
-
-            Text(
-                stringResource(R.string.reveal_wishes),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(top = 8.dp),
-            )
-            if (wishes.isEmpty()) {
-                Text(
-                    stringResource(R.string.reveal_no_wishes),
-                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-            } else {
-                wishes.forEach { wish ->
+                Text(
+                    assignment.receiver,
+                    style = MaterialTheme.typography.displayLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    textAlign = TextAlign.Center,
+                )
+
+                if (budget.isNotBlank()) {
                     Text(
-                        "• $wish",
+                        stringResource(R.string.reveal_budget, budget),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.tertiary,
+                    )
+                }
+
+                Text(
+                    stringResource(R.string.reveal_wishes),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(top = 8.dp),
+                )
+                if (wishes.isEmpty()) {
+                    Text(
+                        stringResource(R.string.reveal_no_wishes),
                         style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                } else {
+                    wishes.forEach { wish ->
+                        Text(
+                            "• $wish",
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                }
+
+                Button(
+                    onClick = onHide,
+                    modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+                ) {
+                    Icon(Icons.Outlined.CheckCircle, contentDescription = null)
+                    Text(
+                        stringResource(R.string.reveal_hide),
+                        modifier = Modifier.padding(start = 8.dp),
                     )
                 }
             }
 
-            Button(
-                onClick = onHide,
-                modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
-            ) {
-                Icon(Icons.Outlined.CheckCircle, contentDescription = null)
-                Text(
-                    stringResource(R.string.reveal_hide),
-                    modifier = Modifier.padding(start = 8.dp),
-                )
-            }
+            KonfettiView(modifier = Modifier.fillMaxSize(), parties = remember { confettiParties() })
         }
-
-        KonfettiView(modifier = Modifier.fillMaxSize(), parties = remember { confettiParties() })
     }
 }
 

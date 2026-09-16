@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -24,6 +26,7 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -78,6 +81,37 @@ fun GroupScreen(
                 ),
             )
         },
+        // Sortear fica fixo no rodapé. No fim da lista, um grupo de 15 pessoas
+        // obrigava a rolar até o final só para achar a ação principal da tela.
+        bottomBar = {
+            Surface(color = MaterialTheme.colorScheme.background) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .navigationBarsPadding()
+                        .imePadding()
+                        .padding(horizontal = 16.dp, vertical = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    DrawButton(
+                        text = stringResource(R.string.group_draw),
+                        onClick = onDraw,
+                        enabled = canDraw,
+                    )
+                    if (!canDraw) {
+                        Text(
+                            stringResource(
+                                R.string.group_needs_more,
+                                SecretSantaEngine.MIN_PARTICIPANTS,
+                            ),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp),
+                        )
+                    }
+                }
+            }
+        },
         containerColor = MaterialTheme.colorScheme.background,
     ) { padding ->
         LazyColumn(
@@ -120,30 +154,6 @@ fun GroupScreen(
 
             items(group.participants, key = { it.id }) { participant ->
                 ParticipantRow(participant = participant, onClick = { editing = participant })
-            }
-
-            item {
-                Column(
-                    modifier = Modifier.padding(top = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    DrawButton(
-                        text = stringResource(R.string.group_draw),
-                        onClick = onDraw,
-                        enabled = canDraw,
-                    )
-                    if (!canDraw) {
-                        Text(
-                            stringResource(
-                                R.string.group_needs_more,
-                                SecretSantaEngine.MIN_PARTICIPANTS,
-                            ),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp),
-                        )
-                    }
-                }
             }
         }
     }

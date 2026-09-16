@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -113,7 +114,15 @@ fun ParticipantSheet(
                 Text(stringResource(R.string.common_save))
             }
 
-            TextButton(onClick = onRemove, modifier = Modifier.fillMaxWidth()) {
+            // Ação destrutiva na cor de erro: em dourado ela competia com o
+            // "Salvar" logo acima como se fosse outra ação principal.
+            TextButton(
+                onClick = onRemove,
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.textButtonColors(
+                    contentColor = MaterialTheme.colorScheme.error,
+                ),
+            ) {
                 Icon(Icons.Outlined.Delete, contentDescription = null)
                 Text(
                     stringResource(R.string.participant_remove),
