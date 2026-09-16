@@ -1,0 +1,95 @@
+package com.secretsanta.app.ui.theme
+
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+private val SecretSantaColors = darkColorScheme(
+    primary = Gold,
+    onPrimary = Ink,
+    secondary = Amethyst,
+    onSecondary = TextPrimary,
+    tertiary = Crystal,
+    onTertiary = Ink,
+    background = Ink,
+    onBackground = TextPrimary,
+    surface = Surface1,
+    onSurface = TextPrimary,
+    surfaceVariant = Surface2,
+    onSurfaceVariant = TextSecondary,
+    outline = Outline,
+    error = Danger,
+    onError = Ink,
+)
+
+private val SecretSantaShapes = Shapes(
+    extraSmall = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
+    small = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+    medium = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
+    large = androidx.compose.foundation.shape.RoundedCornerShape(20.dp),
+    extraLarge = androidx.compose.foundation.shape.RoundedCornerShape(28.dp),
+)
+
+private val SecretSantaTypography = Typography(
+    displayLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Bold,
+        fontSize = 56.sp,
+        lineHeight = 62.sp,
+        letterSpacing = (-1).sp,
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp,
+        lineHeight = 28.sp,
+    ),
+    titleMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 22.sp,
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        lineHeight = 21.sp,
+    ),
+    labelLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        letterSpacing = 0.4.sp,
+    ),
+    labelMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 13.sp,
+    ),
+)
+
+/**
+ * Tema sempre escuro: a spec pede dark mode por padrão, e o app não expõe
+ * um seletor de tema. [darkTheme] existe apenas para previews.
+ */
+@Composable
+fun SecretSantaTheme(
+    @Suppress("UNUSED_PARAMETER") darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit,
+) {
+    MaterialTheme(
+        colorScheme = SecretSantaColors,
+        shapes = SecretSantaShapes,
+        typography = SecretSantaTypography,
+        content = content,
+    )
+}
