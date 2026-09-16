@@ -85,6 +85,42 @@
     </plurals>
     <string name="reveal_discard_confirm">Descartar</string>
 
+    <!-- Modo de revelação -->
+    <string name="mode_title">Como cada um vai descobrir?</string>
+    <string name="mode_links">Enviar um link para cada um</string>
+    <string name="mode_links_body">Cada pessoa abre no próprio celular. Ideal quando o grupo não está junto.</string>
+    <string name="mode_phone">Passar o celular</string>
+    <string name="mode_phone_body">Todo mundo no mesmo lugar, um de cada vez.</string>
+    <string name="redraw_title">Sortear de novo?</string>
+    <plurals name="redraw_body">
+        <item quantity="one">%1$d pessoa já recebeu o link do sorteio anterior. Ela precisa receber o novo, senão dois presentes podem ir para a mesma pessoa.</item>
+        <item quantity="other">%1$d pessoas já receberam links do sorteio anterior. Elas precisam receber os novos, senão dois presentes podem ir para a mesma pessoa.</item>
+    </plurals>
+    <string name="redraw_confirm">Sortear de novo</string>
+
+    <!-- Links -->
+    <string name="links_title">Enviar os links</string>
+    <string name="links_body">Mande cada link só para a pessoa do nome. Você não vai ver quem tirou quem.</string>
+    <string name="links_progress">%1$d de %2$d enviados</string>
+    <string name="links_send">Enviar</string>
+    <string name="links_resend">Reenviar</string>
+    <string name="links_sent_toggle">Marcar como enviado</string>
+    <string name="links_stale_title">O grupo mudou depois do sorteio</string>
+    <string name="links_stale_body">Estes links não incluem as mudanças. Sorteie de novo para gerar links atualizados.</string>
+    <string name="links_redraw">Sortear de novo</string>
+    <string name="links_all_sent">Todos os links foram enviados. 🎁</string>
+    <string name="links_done">Concluir</string>
+    <string name="group_links_card">Links do sorteio</string>
+    <string name="group_links_stale">Desatualizados — sorteie de novo</string>
+    <string name="share_message">🎁 %1$s, seu amigo secreto de %2$s chegou! Abra só você: %3$s</string>
+    <string name="share_message_no_event">🎁 %1$s, seu amigo secreto chegou! Abra só você: %2$s</string>
+    <string name="share_chooser">Enviar para %1$s</string>
+
+    <!-- Menu -->
+    <string name="menu_more">Mais opções</string>
+    <string name="menu_privacy_options">Opções de privacidade</string>
+    <string name="menu_privacy_policy">Política de privacidade</string>
+
     <!-- Comuns -->
     <string name="common_back">Voltar</string>
     <string name="common_cancel">Cancelar</string>

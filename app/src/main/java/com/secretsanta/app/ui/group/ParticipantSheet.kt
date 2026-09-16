@@ -71,7 +71,7 @@ fun ParticipantSheet(
 
             OutlinedTextField(
                 value = name,
-                onValueChange = { name = it },
+                onValueChange = { name = it.take(Participant.MAX_NAME) },
                 singleLine = true,
                 label = { Text(stringResource(R.string.participant_name)) },
                 modifier = Modifier.fillMaxWidth(),
@@ -91,7 +91,7 @@ fun ParticipantSheet(
             wishes.forEachIndexed { index, wish ->
                 OutlinedTextField(
                     value = wish,
-                    onValueChange = { wishes[index] = it },
+                    onValueChange = { wishes[index] = it.take(Participant.MAX_WISH) },
                     singleLine = true,
                     label = { Text(stringResource(R.string.participant_wish_hint, index + 1)) },
                     modifier = Modifier.fillMaxWidth(),

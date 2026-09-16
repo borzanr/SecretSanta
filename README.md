@@ -61,15 +61,37 @@ sorteados aleatoriamente, e falha se algum dos dois lados não for exercitado.
 ./gradlew :app:testDebugUnitTest
 ```
 
+## Revelação por link
+
+Cada participante recebe um link `https://secretsanta.borzanti.com/r/#<token>`.
+O resultado vai **no fragmento**, que o navegador nunca envia ao servidor: a
+página em `site/r/index.html` decodifica tudo no aparelho de quem abriu. O
+formato está em `share/RevealLink.kt` e é um contrato — o teste
+`vetor fixo compartilhado com a pagina web` quebra se ele mudar.
+
+O token é ofuscado (XOR + base64url), **não criptografado**, e o código diz isso
+com todas as letras. É suficiente porque cada link contém só o par daquela pessoa.
+
+Para testar a página no celular sem publicar:
+
+```bash
+cd site && "D:/Program Files/Android/Android Studio/jbr/bin/jwebserver.exe" -p 8765 -b 127.0.0.1
+adb reverse tcp:8765 tcp:8765
+```
+
+e abrir `http://localhost:8765/r/#<token>` no Chrome do aparelho. Um token real
+sai de `adb exec-out run-as com.borzanti.secretsanta.debug cat files/datastore/secretsanta.preferences_pb`.
+
 ## Pendências antes de publicar
 
-- [ ] Criar as unidades de anúncio no AdMob e trocar o App ID de teste no
-      `AndroidManifest.xml` (hoje aponta para o de teste do Google de propósito:
-      um App ID de produção errado derruba o app no start).
-- [ ] Copiar `ads/`, `ui/ReviewPrompt.kt` e `data/AppDataStore.kt` do LuckyDraw.
+- [ ] **AdMob:** criar as unidades deste app (mesmo publisher) e preencher
+      `PROD_BANNER`/`PROD_INTERSTITIAL` em `ads/AdIds.kt` e o App ID real no
+      `AndroidManifest.xml`. Até lá o release não pede anúncio nenhum — falha
+      fechada de propósito.
+- [ ] **Site:** publicar `site/` no GitHub Pages com o domínio
+      `secretsanta.borzanti.com` (o `CNAME` já está pronto) e criar o registro
+      DNS. Sem isso, os links enviados não abrem.
 - [ ] Ícone próprio e `playstore/` com screenshots nos 3 idiomas.
-- [ ] `site/` com a página de revelação e a política de privacidade, em
-      `secretsanta.borzanti.com`.
 - [ ] Keystore de upload própria em `~/keystores` + `keystore.properties`.
-
-O roadmap completo, com ASO e cronograma, está no plano da sessão.
+- [ ] Na Play Console: política de privacidade em
+      `https://secretsanta.borzanti.com/privacy/`.

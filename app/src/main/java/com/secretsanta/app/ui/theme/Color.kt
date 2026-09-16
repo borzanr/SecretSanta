@@ -26,5 +26,8 @@ val TextPrimary = Color(0xFFF2E8D5)
 val TextSecondary = Color(0xFFA99BC0)
 val Danger = Color(0xFFE5687B)
 
+/** Fundo de avisos (links desatualizados): vinho escuro, legível sobre o violeta. */
+val DangerContainer = Color(0xFF4A1F33)
+
 /** Cores dos confetes (ARGB int, formato exigido pelo Konfetti). */
 val ConfettiColors = listOf(0xE0B354, 0x7C5BC7, 0x6BD6F0, 0xF2E8D5, 0xC08A3E)

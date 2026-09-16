@@ -87,6 +87,42 @@
     </plurals>
     <string name="reveal_discard_confirm">Discard</string>
 
+    <!-- Modo de revelação -->
+    <string name="mode_title">How will everyone find out?</string>
+    <string name="mode_links">Send each person a link</string>
+    <string name="mode_links_body">Everyone opens it on their own phone. Best when the group isn\'t together.</string>
+    <string name="mode_phone">Pass the phone</string>
+    <string name="mode_phone_body">Everyone in the same room, one at a time.</string>
+    <string name="redraw_title">Draw again?</string>
+    <plurals name="redraw_body">
+        <item quantity="one">%1$d person already got a link from the last draw. They must get the new one, or two gifts could go to the same person.</item>
+        <item quantity="other">%1$d people already got links from the last draw. They must get the new ones, or two gifts could go to the same person.</item>
+    </plurals>
+    <string name="redraw_confirm">Draw again</string>
+
+    <!-- Links -->
+    <string name="links_title">Send the links</string>
+    <string name="links_body">Send each link only to the person named on it. You won\'t see who drew whom.</string>
+    <string name="links_progress">%1$d of %2$d sent</string>
+    <string name="links_send">Send</string>
+    <string name="links_resend">Resend</string>
+    <string name="links_sent_toggle">Mark as sent</string>
+    <string name="links_stale_title">The group changed after the draw</string>
+    <string name="links_stale_body">These links don\'t include the changes. Draw again to create updated links.</string>
+    <string name="links_redraw">Draw again</string>
+    <string name="links_all_sent">Every link has been sent. 🎁</string>
+    <string name="links_done">Done</string>
+    <string name="group_links_card">Draw links</string>
+    <string name="group_links_stale">Out of date — draw again</string>
+    <string name="share_message">🎁 %1$s, your Secret Santa for %2$s is here! Open it only yourself: %3$s</string>
+    <string name="share_message_no_event">🎁 %1$s, your Secret Santa is here! Open it only yourself: %2$s</string>
+    <string name="share_chooser">Send to %1$s</string>
+
+    <!-- Menu -->
+    <string name="menu_more">More options</string>
+    <string name="menu_privacy_options">Privacy options</string>
+    <string name="menu_privacy_policy">Privacy policy</string>
+
     <!-- Comuns -->
     <string name="common_back">Back</string>
     <string name="common_cancel">Cancel</string>

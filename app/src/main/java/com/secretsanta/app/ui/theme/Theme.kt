@@ -36,6 +36,8 @@ private val SecretSantaColors = darkColorScheme(
     surfaceDim = Ink,
     outline = Outline,
     error = Danger,
+    errorContainer = DangerContainer,
+    onErrorContainer = TextPrimary,
     onError = Ink,
 )
 

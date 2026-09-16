@@ -4,8 +4,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -15,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -28,15 +31,18 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -44,6 +50,8 @@ import com.secretsanta.app.R
 import com.secretsanta.app.data.Group
 import com.secretsanta.app.data.Participant
 import com.secretsanta.app.draw.SecretSantaEngine
+import com.secretsanta.app.ads.BannerAd
+import com.secretsanta.app.ui.RevealMode
 import com.secretsanta.app.ui.components.DrawButton
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,10 +65,28 @@ fun GroupScreen(
     onEditParticipant: (Participant) -> Unit,
     onRemoveParticipant: (String) -> Unit,
     onOpenRestrictions: () -> Unit,
-    onDraw: () -> Unit,
+    onOpenLinks: () -> Unit,
+    onDraw: (RevealMode) -> Unit,
+    promptDraw: Boolean = false,
+    onPromptDrawConsumed: () -> Unit = {},
 ) {
     var editing by remember { mutableStateOf<Participant?>(null) }
+    var choosingMode by remember { mutableStateOf(false) }
+    var pendingRedraw by remember { mutableStateOf<RevealMode?>(null) }
     val canDraw = group.participants.size >= SecretSantaEngine.MIN_PARTICIPANTS
+    val alreadySent = group.linkDraw?.sentCount ?: 0
+
+    LaunchedEffect(promptDraw) {
+        if (promptDraw && canDraw) choosingMode = true
+        if (promptDraw) onPromptDrawConsumed()
+    }
+
+    // Sortear de novo com links já enviados cria dois resultados circulando ao
+    // mesmo tempo. Só pede confirmação quando isso de fato pode acontecer.
+    val requestDraw: (RevealMode) -> Unit = { mode ->
+        choosingMode = false
+        if (alreadySent > 0) pendingRedraw = mode else onDraw(mode)
+    }
 
     Scaffold(
         topBar = {
@@ -85,17 +111,16 @@ fun GroupScreen(
         // obrigava a rolar até o final só para achar a ação principal da tela.
         bottomBar = {
             Surface(color = MaterialTheme.colorScheme.background) {
+              Column(Modifier.fillMaxWidth().navigationBarsPadding().imePadding()) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .navigationBarsPadding()
-                        .imePadding()
                         .padding(horizontal = 16.dp, vertical = 12.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     DrawButton(
                         text = stringResource(R.string.group_draw),
-                        onClick = onDraw,
+                        onClick = { choosingMode = true },
                         enabled = canDraw,
                     )
                     if (!canDraw) {
@@ -110,6 +135,12 @@ fun GroupScreen(
                         )
                     }
                 }
+                // Banner fora da coluna do botão e com folga acima: anúncio colado
+                // na ação principal gera clique acidental, que a política do AdMob
+                // proíbe e que irrita quem só queria sortear.
+                Spacer(Modifier.height(8.dp))
+                BannerAd()
+              }
             }
         },
         containerColor = MaterialTheme.colorScheme.background,
@@ -140,6 +171,10 @@ fun GroupScreen(
                 )
             }
 
+            group.linkDraw?.let { draw ->
+                item { LinksRow(group = group, sent = draw.sentCount, total = draw.links.size, onClick = onOpenLinks) }
+            }
+
             item { RestrictionsRow(group, onOpenRestrictions) }
 
             item {
@@ -158,6 +193,29 @@ fun GroupScreen(
         }
     }
 
+    if (choosingMode) {
+        DrawModeSheet(onDismiss = { choosingMode = false }, onChoose = requestDraw)
+    }
+
+    pendingRedraw?.let { mode ->
+        AlertDialog(
+            onDismissRequest = { pendingRedraw = null },
+            title = { Text(stringResource(R.string.redraw_title)) },
+            text = { Text(pluralStringResource(R.plurals.redraw_body, alreadySent, alreadySent)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    pendingRedraw = null
+                    onDraw(mode)
+                }) { Text(stringResource(R.string.redraw_confirm)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingRedraw = null }) {
+                    Text(stringResource(R.string.common_cancel))
+                }
+            },
+        )
+    }
+
     editing?.let { participant ->
         ParticipantSheet(
             participant = participant,
@@ -170,6 +228,39 @@ fun GroupScreen(
                 editing = null
                 onRemoveParticipant(participant.id)
             },
+        )
+    }
+}
+
+@Composable
+private fun LinksRow(group: Group, sent: Int, total: Int, onClick: () -> Unit) {
+    val stale = group.isLinkDrawStale
+    Card(
+        onClick = onClick,
+        colors = CardDefaults.cardColors(
+            containerColor = if (stale) {
+                MaterialTheme.colorScheme.errorContainer
+            } else {
+                MaterialTheme.colorScheme.surfaceVariant
+            },
+        ),
+        shape = MaterialTheme.shapes.medium,
+    ) {
+        ListItem(
+            headlineContent = { Text(stringResource(R.string.group_links_card)) },
+            supportingContent = {
+                Text(
+                    if (stale) {
+                        stringResource(R.string.group_links_stale)
+                    } else {
+                        stringResource(R.string.links_progress, sent, total)
+                    },
+                )
+            },
+            trailingContent = {
+                Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null)
+            },
+            colors = ListItemDefaults.colors(containerColor = Color.Transparent),
         )
     }
 }

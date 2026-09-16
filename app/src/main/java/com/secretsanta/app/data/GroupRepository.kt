@@ -76,7 +76,13 @@ class GroupRepository(private val context: Context) {
 
     suspend fun delete(groupId: String) {
         context.appDataStore.edit { prefs ->
-            val current = decode(prefs[GROUPS_KEY])
+            val raw = prefs[GROUPS_KEY] ?: return@edit
+            // Mesma regra do save: o decode tolerante devolveria lista vazia para
+            // JSON corrompido, e gravá-la aqui apagaria todos os grupos.
+            val current = runCatching { json.decodeFromString<List<Group>>(raw) }.getOrElse {
+                Log.e(TAG, "Grupos corrompidos: não vou sobrescrever", it)
+                return@edit
+            }
             prefs[GROUPS_KEY] = json.encodeToString(current.filterNot { it.id == groupId })
         }
     }
@@ -102,12 +108,6 @@ class GroupRepository(private val context: Context) {
         private const val TAG = "GroupRepository"
 
         const val MAX_GROUPS = 50
-
-        /**
-         * Sorteios antes de convidar para avaliar. Cedo demais atrapalha quem só
-         * queria sortear uma vez; tarde demais e a pessoa já fechou o app.
-         */
-        const val DRAWS_BEFORE_REVIEW = 2
 
         private val GROUPS_KEY = stringPreferencesKey("groups")
         private val DRAW_COUNT_KEY = intPreferencesKey("draw_count")

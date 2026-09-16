@@ -39,6 +39,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -232,7 +234,12 @@ private fun RevealCard(
     onHide: () -> Unit,
 ) {
     var visible by remember { mutableStateOf(false) }
-    LaunchedEffect(assignment) { visible = true }
+    val haptics = LocalHapticFeedback.current
+    LaunchedEffect(assignment) {
+        visible = true
+        // Vibração curta via View, que não exige a permissão VIBRATE.
+        haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+    }
 
     val scale by animateFloatAsState(
         targetValue = if (visible) 1f else 0.8f,

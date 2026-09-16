@@ -18,7 +18,48 @@ data class Participant(
     companion object {
         /** Sugestões de presente por pessoa. Três cabem na tela e no link. */
         const val MAX_WISHES = 3
+
+        /**
+         * Limites de digitação. Tudo isto pode ir parar dentro de um link colado
+         * no WhatsApp; os tetos mantêm o pior caso bem abaixo do tamanho em que
+         * apps de mensagem começam a cortar URLs.
+         */
+        const val MAX_NAME = 40
+        const val MAX_WISH = 60
     }
+}
+
+/**
+ * O link de uma pessoa, já codificado. Guardado para que o organizador possa
+ * enviar aos poucos, ao longo de dias, sem precisar sortear de novo.
+ *
+ * Só o link é guardado — nunca um par legível. Nenhuma tela do app decodifica
+ * [url]; o organizador vê apenas [giverName] e se já marcou como enviado.
+ */
+@Serializable
+data class SealedLink(
+    val giverId: String,
+    val giverName: String,
+    val url: String,
+    val sent: Boolean = false,
+)
+
+/**
+ * Um sorteio feito para revelação por link.
+ *
+ * [fingerprint] é o [Group.contentFingerprint] do grupo no momento do sorteio.
+ * Se o grupo muda depois — alguém entra, uma sugestão é editada — os links
+ * já gerados ficam desatualizados, e a tela avisa em vez de enviar resultado
+ * velho em silêncio.
+ */
+@Serializable
+data class LinkDraw(
+    val createdAt: Long,
+    val fingerprint: String,
+    val links: List<SealedLink>,
+) {
+    val sentCount: Int get() = links.count { it.sent }
+    val isComplete: Boolean get() = links.isNotEmpty() && links.all { it.sent }
 }
 
 /** [giverId] não pode tirar [receiverId]. */
@@ -41,8 +82,30 @@ data class Group(
     val restrictions: List<Restriction> = emptyList(),
     val createdAt: Long = 0L,
     val drawnAt: Long? = null,
+    val linkDraw: LinkDraw? = null,
 ) {
     val names: List<String> get() = participants.map { it.name }
+
+    /**
+     * Resumo de tudo que vai dentro dos links: nome do grupo, valor, pessoas,
+     * sugestões e regras. Serve só para detectar mudança, não para segurança.
+     */
+    fun contentFingerprint(): String = buildString {
+        // Separadores entre campos, para que nome "Ana" + valor "Bo" não gere o
+        // mesmo resumo que nome "An" + valor "aBo".
+        append(name).append("\u241F").append(budget)
+        participants.forEach { p ->
+            append("\u241E").append(p.id).append("\u241F").append(p.name)
+            p.wishes.forEach { append("\u241D").append(it) }
+        }
+        restrictions.sortedBy { it.giverId + it.receiverId }.forEach {
+            append("\u241C").append(it.giverId).append('>').append(it.receiverId)
+        }
+    }.hashCode().toUInt().toString(16)
+
+    /** Os links existem mas o grupo mudou desde o sorteio. */
+    val isLinkDrawStale: Boolean
+        get() = linkDraw != null && linkDraw.fingerprint != contentFingerprint()
 
     fun participantById(id: String): Participant? = participants.firstOrNull { it.id == id }
 

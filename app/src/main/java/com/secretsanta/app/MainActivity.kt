@@ -6,8 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.MobileAds
+import com.secretsanta.app.ads.AdIds
+import com.secretsanta.app.ads.ConsentManager
+import com.secretsanta.app.ads.InterstitialManager
 import com.secretsanta.app.ui.SecretSantaApp
 import com.secretsanta.app.ui.theme.SecretSantaTheme
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
 
@@ -20,7 +28,22 @@ class MainActivity : ComponentActivity() {
         )
         super.onCreate(savedInstanceState)
 
-        // TODO(semana 3): consentimento UMP + MobileAds + revelação por link.
+        // Consentimento primeiro: na Europa é proibido carregar anúncio antes de
+        // perguntar. Fora de lá o callback vem quase imediatamente. O formulário
+        // roda mesmo sem IDs de produção, para que as opções de privacidade
+        // prometidas na política funcionem desde a primeira versão.
+        ConsentManager.gather(this) {
+            if (!AdIds.enabled) return@gather
+            lifecycleScope.launch {
+                // A inicialização do SDK faz I/O de disco: sai da main thread para
+                // não atrasar o primeiro frame.
+                withContext(Dispatchers.IO) { MobileAds.initialize(this@MainActivity) }
+                AdIds.applyTestDevices()
+                // Já o load do interstitial EXIGE a main thread (checkMainThread no SDK).
+                InterstitialManager.preload(applicationContext)
+            }
+        }
+
         setContent {
             SecretSantaTheme {
                 SecretSantaApp()
