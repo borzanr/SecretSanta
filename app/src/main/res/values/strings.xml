@@ -1,4 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Secret Santa</string>
+
+    <!-- Lista de grupos -->
+    <string name="groups_title">Your groups</string>
+    <string name="groups_empty_title">No groups yet</string>
+    <string name="groups_empty_body">Create a group, add everyone\'s names, and draw. No email, no signup.</string>
+    <string name="groups_new">New group</string>
+    <string name="groups_name_hint">Group name (e.g. Office party)</string>
+    <string name="groups_delete_title">Delete this group?</string>
+    <string name="groups_delete_body">%1$s and its people will be removed from this phone.</string>
+    <plurals name="groups_people">
+        <item quantity="one">%1$d person</item>
+        <item quantity="other">%1$d people</item>
+    </plurals>
+    <string name="groups_never_drawn">Not drawn yet</string>
+
+    <!-- Grupo -->
+    <string name="group_name_label">Group name</string>
+    <string name="group_budget_label">Gift budget (optional)</string>
+    <string name="group_budget_hint">e.g. $20</string>
+    <string name="group_participants">People</string>
+    <string name="group_add_hint">Add a name, or paste a whole list</string>
+    <string name="group_add">Add</string>
+    <string name="group_restrictions">Who can\'t draw whom</string>
+    <plurals name="group_restrictions_count">
+        <item quantity="one">%1$d rule</item>
+        <item quantity="other">%1$d rules</item>
+    </plurals>
+    <string name="group_restrictions_none">No rules</string>
+    <string name="group_draw">Draw names</string>
+    <string name="group_needs_more">Add at least %1$d people to draw.</string>
+
+    <!-- Participante -->
+    <string name="participant_title">Edit person</string>
+    <string name="participant_name">Name</string>
+    <string name="participant_wishes">Gift ideas</string>
+    <string name="participant_wishes_hint">Whoever draws this person will see these</string>
+    <string name="participant_wish_hint">Idea %1$d</string>
+    <plurals name="participant_wishes_count">
+        <item quantity="one">%1$d idea</item>
+        <item quantity="other">%1$d ideas</item>
+    </plurals>
+    <string name="participant_remove">Remove from group</string>
+
+    <!-- Restrições -->
+    <string name="restrictions_title">Drawing rules</string>
+    <string name="restrictions_body">Pick two people who should never draw each other — couples, siblings, anyone who already exchanges gifts.</string>
+    <string name="restrictions_empty">No rules yet. Everyone can draw everyone.</string>
+    <string name="restrictions_add">Add a rule</string>
+    <string name="restrictions_pick">Pick two people</string>
+    <string name="restrictions_pair">%1$s and %2$s</string>
+    <string name="restrictions_remove">Remove rule</string>
+
+    <!-- Sorteio -->
+    <string name="draw_suspense">Drawing…</string>
+    <string name="draw_error_too_few">You need at least %1$d people. With two, both already know who they got.</string>
+    <string name="draw_error_too_many">Up to %1$d people per group.</string>
+    <string name="draw_error_duplicate">Two people are named “%1$s”. Tell them apart (Ana M., Ana S.) so the reveal makes sense.</string>
+    <string name="draw_error_impossible">These rules make a draw impossible. Remove one and try again.</string>
+    <string name="draw_error_title">Can\'t draw yet</string>
+    <string name="draw_dismiss">Got it</string>
+
+    <!-- Revelação presencial -->
+    <string name="reveal_title">Pass the phone</string>
+    <string name="reveal_body">Everyone taps their own name, sees who they got, and passes it on.</string>
+    <string name="reveal_confirm_title">Are you %1$s?</string>
+    <string name="reveal_confirm_body">Only tap yes if the phone is in your hands.</string>
+    <string name="reveal_confirm_yes">Yes, show me</string>
+    <string name="reveal_confirm_no">Not me</string>
+    <string name="reveal_you_got">You are giving to</string>
+    <string name="reveal_budget">Budget: %1$s</string>
+    <string name="reveal_wishes">Gift ideas</string>
+    <string name="reveal_no_wishes">No gift ideas added.</string>
+    <string name="reveal_hide">Done — hide and pass on</string>
+    <plurals name="reveal_remaining">
+        <item quantity="one">%1$d person still to go</item>
+        <item quantity="other">%1$d people still to go</item>
+    </plurals>
+    <string name="reveal_all_done">Everyone has seen their name.</string>
+    <string name="reveal_finish">Finish</string>
+    <string name="reveal_discard_title">Discard this draw?</string>
+    <plurals name="reveal_discard_body">
+        <item quantity="one">%1$d person has already seen their name. Going back starts over.</item>
+        <item quantity="other">%1$d people have already seen their names. Going back starts over.</item>
+    </plurals>
+    <string name="reveal_discard_confirm">Discard</string>
+
+    <!-- Comuns -->
+    <string name="common_back">Back</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_create">Create</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_save">Save</string>
 </resources>

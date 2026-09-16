@@ -82,6 +82,7 @@ dependencies {
     implementation(libs.play.services.ads)
     implementation(libs.play.review)
     implementation(libs.konfetti.compose)
+    implementation(libs.androidx.navigation.compose)
 
     testImplementation(libs.junit)
 }

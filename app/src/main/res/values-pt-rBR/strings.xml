@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lista de grupos -->
+    <string name="groups_title">Seus grupos</string>
+    <string name="groups_empty_title">Nenhum grupo ainda</string>
+    <string name="groups_empty_body">Crie um grupo, adicione os nomes e sorteie. Sem e-mail, sem cadastro.</string>
+    <string name="groups_new">Novo grupo</string>
+    <string name="groups_name_hint">Nome do grupo (ex.: Confraternização)</string>
+    <string name="groups_delete_title">Excluir este grupo?</string>
+    <string name="groups_delete_body">%1$s e os participantes serão removidos deste aparelho.</string>
+    <plurals name="groups_people">
+        <item quantity="one">%1$d pessoa</item>
+        <item quantity="other">%1$d pessoas</item>
+    </plurals>
+    <string name="groups_never_drawn">Ainda não sorteado</string>
+
+    <!-- Grupo -->
+    <string name="group_name_label">Nome do grupo</string>
+    <string name="group_budget_label">Valor do presente (opcional)</string>
+    <string name="group_budget_hint">ex.: R$ 50</string>
+    <string name="group_participants">Participantes</string>
+    <string name="group_add_hint">Adicione um nome, ou cole a lista inteira</string>
+    <string name="group_add">Adicionar</string>
+    <string name="group_restrictions">Quem não pode tirar quem</string>
+    <plurals name="group_restrictions_count">
+        <item quantity="one">%1$d regra</item>
+        <item quantity="other">%1$d regras</item>
+    </plurals>
+    <string name="group_restrictions_none">Sem regras</string>
+    <string name="group_draw">Sortear</string>
+    <string name="group_needs_more">Adicione pelo menos %1$d pessoas para sortear.</string>
+
+    <!-- Participante -->
+    <string name="participant_title">Editar participante</string>
+    <string name="participant_name">Nome</string>
+    <string name="participant_wishes">Sugestões de presente</string>
+    <string name="participant_wishes_hint">Quem tirar esta pessoa vai ver estas sugestões</string>
+    <string name="participant_wish_hint">Sugestão %1$d</string>
+    <plurals name="participant_wishes_count">
+        <item quantity="one">%1$d sugestão</item>
+        <item quantity="other">%1$d sugestões</item>
+    </plurals>
+    <string name="participant_remove">Remover do grupo</string>
+
+    <!-- Restrições -->
+    <string name="restrictions_title">Regras do sorteio</string>
+    <string name="restrictions_body">Escolha duas pessoas que nunca devem se tirar — casais, irmãos, quem já troca presente de qualquer jeito.</string>
+    <string name="restrictions_empty">Nenhuma regra. Todo mundo pode tirar todo mundo.</string>
+    <string name="restrictions_add">Adicionar regra</string>
+    <string name="restrictions_pick">Escolha duas pessoas</string>
+    <string name="restrictions_pair">%1$s e %2$s</string>
+    <string name="restrictions_remove">Remover regra</string>
+
+    <!-- Sorteio -->
+    <string name="draw_suspense">Sorteando…</string>
+    <string name="draw_error_too_few">São necessárias pelo menos %1$d pessoas. Com duas, as duas já sabem quem tiraram.</string>
+    <string name="draw_error_too_many">Até %1$d pessoas por grupo.</string>
+    <string name="draw_error_duplicate">Há duas pessoas chamadas “%1$s”. Diferencie os nomes (Ana M., Ana S.) para a revelação fazer sentido.</string>
+    <string name="draw_error_impossible">Estas regras tornam o sorteio impossível. Remova uma e tente de novo.</string>
+    <string name="draw_error_title">Ainda não dá para sortear</string>
+    <string name="draw_dismiss">Entendi</string>
+
+    <!-- Revelação presencial -->
+    <string name="reveal_title">Passa o celular</string>
+    <string name="reveal_body">Cada um toca no próprio nome, vê quem tirou e passa adiante.</string>
+    <string name="reveal_confirm_title">Você é %1$s?</string>
+    <string name="reveal_confirm_body">Só toque em sim se o celular estiver com você.</string>
+    <string name="reveal_confirm_yes">Sim, mostrar</string>
+    <string name="reveal_confirm_no">Não sou eu</string>
+    <string name="reveal_you_got">Você tirou</string>
+    <string name="reveal_budget">Valor: %1$s</string>
+    <string name="reveal_wishes">Sugestões de presente</string>
+    <string name="reveal_no_wishes">Nenhuma sugestão cadastrada.</string>
+    <string name="reveal_hide">Pronto — esconder e passar adiante</string>
+    <plurals name="reveal_remaining">
+        <item quantity="one">Falta %1$d pessoa</item>
+        <item quantity="other">Faltam %1$d pessoas</item>
+    </plurals>
+    <string name="reveal_all_done">Todo mundo já viu quem tirou.</string>
+    <string name="reveal_finish">Concluir</string>
+    <string name="reveal_discard_title">Descartar este sorteio?</string>
+    <plurals name="reveal_discard_body">
+        <item quantity="one">%1$d pessoa já viu quem tirou. Voltar recomeça do zero.</item>
+        <item quantity="other">%1$d pessoas já viram quem tiraram. Voltar recomeça do zero.</item>
+    </plurals>
+    <string name="reveal_discard_confirm">Descartar</string>
+
+    <!-- Comuns -->
+    <string name="common_back">Voltar</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_create">Criar</string>
+    <string name="common_delete">Excluir</string>
+    <string name="common_save">Salvar</string>
+</resources>

@@ -10,6 +10,7 @@ serializationJson = "1.9.0"
 playServicesAds = "25.4.0"
 playReview = "2.0.2"
 konfetti = "2.0.5"
+navigation = "2.9.8"
 junit = "4.13.2"
 
 [libraries]
@@ -29,6 +30,7 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "playServicesAds" }
 play-review = { group = "com.google.android.play", name = "review-ktx", version.ref = "playReview" }
 konfetti-compose = { group = "nl.dionsegijn", name = "konfetti-compose", version.ref = "konfetti" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lista de grupos -->
+    <string name="groups_title">Tus grupos</string>
+    <string name="groups_empty_title">Todavía no hay grupos</string>
+    <string name="groups_empty_body">Crea un grupo, agrega los nombres y sortea. Sin correo, sin registro.</string>
+    <string name="groups_new">Nuevo grupo</string>
+    <string name="groups_name_hint">Nombre del grupo (ej.: Fiesta de la oficina)</string>
+    <string name="groups_delete_title">¿Eliminar este grupo?</string>
+    <string name="groups_delete_body">%1$s y sus participantes se borrarán de este teléfono.</string>
+    <plurals name="groups_people">
+        <item quantity="one">%1$d persona</item>
+        <item quantity="other">%1$d personas</item>
+    </plurals>
+    <string name="groups_never_drawn">Sin sortear</string>
+
+    <!-- Grupo -->
+    <string name="group_name_label">Nombre del grupo</string>
+    <string name="group_budget_label">Valor del regalo (opcional)</string>
+    <string name="group_budget_hint">ej.: $20</string>
+    <string name="group_participants">Participantes</string>
+    <string name="group_add_hint">Agrega un nombre, o pega la lista completa</string>
+    <string name="group_add">Agregar</string>
+    <string name="group_restrictions">Quién no puede sacar a quién</string>
+    <plurals name="group_restrictions_count">
+        <item quantity="one">%1$d regla</item>
+        <item quantity="other">%1$d reglas</item>
+    </plurals>
+    <string name="group_restrictions_none">Sin reglas</string>
+    <string name="group_draw">Sortear</string>
+    <string name="group_needs_more">Agrega al menos %1$d personas para sortear.</string>
+
+    <!-- Participante -->
+    <string name="participant_title">Editar participante</string>
+    <string name="participant_name">Nombre</string>
+    <string name="participant_wishes">Ideas de regalo</string>
+    <string name="participant_wishes_hint">Quien saque a esta persona verá estas ideas</string>
+    <string name="participant_wish_hint">Idea %1$d</string>
+    <plurals name="participant_wishes_count">
+        <item quantity="one">%1$d idea</item>
+        <item quantity="other">%1$d ideas</item>
+    </plurals>
+    <string name="participant_remove">Quitar del grupo</string>
+
+    <!-- Restricciones -->
+    <string name="restrictions_title">Reglas del sorteo</string>
+    <string name="restrictions_body">Elige dos personas que nunca deban sacarse entre sí: parejas, hermanos, quien ya se regala igual.</string>
+    <string name="restrictions_empty">Sin reglas. Todos pueden sacar a todos.</string>
+    <string name="restrictions_add">Agregar regla</string>
+    <string name="restrictions_pick">Elige dos personas</string>
+    <string name="restrictions_pair">%1$s y %2$s</string>
+    <string name="restrictions_remove">Quitar regla</string>
+
+    <!-- Sorteo -->
+    <string name="draw_suspense">Sorteando…</string>
+    <string name="draw_error_too_few">Hacen falta al menos %1$d personas. Con dos, ambas ya saben a quién sacaron.</string>
+    <string name="draw_error_too_many">Hasta %1$d personas por grupo.</string>
+    <string name="draw_error_duplicate">Hay dos personas llamadas “%1$s”. Diferencia los nombres (Ana M., Ana S.) para que la revelación tenga sentido.</string>
+    <string name="draw_error_impossible">Estas reglas hacen imposible el sorteo. Quita una e inténtalo de nuevo.</string>
+    <string name="draw_error_title">Todavía no se puede sortear</string>
+    <string name="draw_dismiss">Entendido</string>
+
+    <!-- Revelación presencial -->
+    <string name="reveal_title">Pasa el teléfono</string>
+    <string name="reveal_body">Cada persona toca su propio nombre, ve a quién sacó y lo pasa.</string>
+    <string name="reveal_confirm_title">¿Eres %1$s?</string>
+    <string name="reveal_confirm_body">Toca sí solo si tienes el teléfono en la mano.</string>
+    <string name="reveal_confirm_yes">Sí, mostrar</string>
+    <string name="reveal_confirm_no">No soy yo</string>
+    <string name="reveal_you_got">Te tocó</string>
+    <string name="reveal_budget">Valor: %1$s</string>
+    <string name="reveal_wishes">Ideas de regalo</string>
+    <string name="reveal_no_wishes">Sin ideas de regalo.</string>
+    <string name="reveal_hide">Listo: ocultar y pasar</string>
+    <plurals name="reveal_remaining">
+        <item quantity="one">Falta %1$d persona</item>
+        <item quantity="other">Faltan %1$d personas</item>
+    </plurals>
+    <string name="reveal_all_done">Todos ya vieron a quién sacaron.</string>
+    <string name="reveal_finish">Finalizar</string>
+    <string name="reveal_discard_title">¿Descartar este sorteo?</string>
+    <plurals name="reveal_discard_body">
+        <item quantity="one">%1$d persona ya vio a quién sacó. Volver empieza de cero.</item>
+        <item quantity="other">%1$d personas ya vieron a quién sacaron. Volver empieza de cero.</item>
+    </plurals>
+    <string name="reveal_discard_confirm">Descartar</string>
+
+    <!-- Comunes -->
+    <string name="common_back">Volver</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_create">Crear</string>
+    <string name="common_delete">Eliminar</string>
+    <string name="common_save">Guardar</string>
+</resources>
