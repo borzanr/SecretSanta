@@ -84,14 +84,10 @@ sai de `adb exec-out run-as com.borzanti.secretsanta.debug cat files/datastore/s
 
 ## Pendências antes de publicar
 
-- [ ] **AdMob:** criar as unidades deste app (mesmo publisher) e preencher
-      `PROD_BANNER`/`PROD_INTERSTITIAL` em `ads/AdIds.kt` e o App ID real no
-      `AndroidManifest.xml`. Até lá o release não pede anúncio nenhum — falha
-      fechada de propósito.
-- [ ] **Site:** publicar `site/` no GitHub Pages com o domínio
-      `secretsanta.borzanti.com` (o `CNAME` já está pronto) e criar o registro
-      DNS. Sem isso, os links enviados não abrem.
-- [ ] Ícone próprio e `playstore/` com screenshots nos 3 idiomas.
+- [x] **AdMob:** unidades criadas e aplicadas (IDs em `playstore/README.md`).
+- [x] **Site:** publicado em `https://secretsanta.borzanti.com` (repositório
+      `borzanr/secretsanta-site`, GitHub Pages, CNAME no Squarespace).
+- [x] Ícone próprio e `playstore/` com screenshots nos 3 idiomas.
 - [ ] Keystore de upload própria em `~/keystores` + `keystore.properties`.
 - [ ] Na Play Console: política de privacidade em
       `https://secretsanta.borzanti.com/privacy/`.

@@ -12,14 +12,13 @@
         android:theme="@style/Theme.SecretSanta">
 
         <!--
-            TODO(publicação): trocar pelo App ID real assim que a unidade deste app
-            for criada no AdMob (mesmo publisher, ca-app-pub-5043299631567488).
-            Até lá fica o App ID de teste do Google, que é o único valor seguro:
-            um App ID de produção errado faz o SDK derrubar o app no start.
+            App ID real da conta AdMob (com "~"). Vale para todos os builds: o que
+            separa teste de produção são os unit IDs em ads/AdIds.kt, que em debug
+            continuam sendo os de teste do Google.
         -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-5043299631567488~2456611633" />
 
         <activity
             android:name=".MainActivity"

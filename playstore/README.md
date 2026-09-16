@@ -48,17 +48,18 @@ HTTPS podem levar de minutos a algumas horas.
 6. Teste em janela anônima: `https://secretsanta.borzanti.com/privacy/` e
    `https://secretsanta.borzanti.com/app-ads.txt`.
 
-## Passo 2 — AdMob
+## Passo 2 — AdMob ✅
 
-1. **Apps → Adicionar app → Android → "O app não está publicado"** → nome
-   `Secret Santa`. Anote o **App ID** (tem `~`).
-2. Nesse app, **Blocos de anúncios → Adicionar**:
-   - **Banner** → nome `secretsanta_banner`
-   - **Intersticial** → nome `secretsanta_interstitial`
-3. Me passe os três IDs. Eles vão em `app/src/main/AndroidManifest.xml` (App ID)
-   e em `ads/AdIds.kt` (`PROD_BANNER`, `PROD_INTERSTITIAL`). Enquanto estiverem
-   vazios, o release não pede anúncio nenhum.
-4. Depois de publicado na Play, volte em **Configurações do app → Vincular à loja**.
+Feito em 16/09/2026. App `Secret Santa` na conta `pub-5043299631567488`:
+
+| | ID |
+| --- | --- |
+| App ID | `ca-app-pub-5043299631567488~2456611633` |
+| Banner (`secretsanta_banner`) | `ca-app-pub-5043299631567488/9885518823` |
+| Intersticial (`secretsanta_interstitial`) | `ca-app-pub-5043299631567488/5946273810` |
+
+Já aplicados no `AndroidManifest.xml` e em `ads/AdIds.kt`. Falta só, **depois**
+de publicar na Play: **Configurações do app → Vincular à loja**.
 
 ## Passo 3 — Chave de upload
 
@@ -135,7 +136,7 @@ Resultado esperado: Livre / Everyone / PEGI 3.
 
 ### Antes de enviar para revisão
 - [ ] `https://secretsanta.borzanti.com/privacy/` abre em janela anônima
-- [ ] IDs reais do AdMob no AAB
+- [x] IDs reais do AdMob no AAB
 - [ ] `versionCode 1`, `versionName 1.0`
 - [ ] Classificação de conteúdo sem jogos de azar
 - [ ] Data Safety importado

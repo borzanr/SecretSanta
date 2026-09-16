@@ -18,11 +18,10 @@ object AdIds {
     private const val TEST_BANNER = "ca-app-pub-3940256099942544/6300978111"
     private const val TEST_INTERSTITIAL = "ca-app-pub-3940256099942544/1033173712"
 
-    // TODO(publicação): criar as unidades deste app no AdMob (mesmo publisher,
-    // ca-app-pub-5043299631567488) e preencher. Enquanto estiverem vazias, o
-    // release simplesmente não carrega anúncio — ver [enabled].
-    private const val PROD_BANNER = ""
-    private const val PROD_INTERSTITIAL = ""
+    // Blocos reais da conta AdMob, app "Secret Santa". O prefixo bate com o
+    // APPLICATION_ID do manifest.
+    private const val PROD_BANNER = "ca-app-pub-5043299631567488/9885518823"
+    private const val PROD_INTERSTITIAL = "ca-app-pub-5043299631567488/5946273810"
 
     /**
      * Falha fechada: um release sem IDs de produção não pede anúncio nenhum, em

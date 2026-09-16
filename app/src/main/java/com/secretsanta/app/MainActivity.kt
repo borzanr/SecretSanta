@@ -34,6 +34,13 @@ class MainActivity : ComponentActivity() {
         )
         super.onCreate(savedInstanceState)
 
+        // Aparelhos de teste ANTES de qualquer requisição. O banner pede anúncio
+        // assim que o consentimento libera, sem esperar o initialize abaixo; com
+        // esta chamada lá embaixo, o aparelho de desenvolvimento chegou a pedir
+        // anúncio real (visto no logcat do staging). O SDK aceita a configuração
+        // antes de inicializar.
+        AdIds.applyTestDevices()
+
         // Consentimento primeiro: na Europa é proibido carregar anúncio antes de
         // perguntar. Fora de lá o callback vem quase imediatamente. O formulário
         // roda mesmo sem IDs de produção, para que as opções de privacidade
@@ -44,7 +51,6 @@ class MainActivity : ComponentActivity() {
                 // A inicialização do SDK faz I/O de disco: sai da main thread para
                 // não atrasar o primeiro frame.
                 withContext(Dispatchers.IO) { MobileAds.initialize(this@MainActivity) }
-                AdIds.applyTestDevices()
                 // Já o load do interstitial EXIGE a main thread (checkMainThread no SDK).
                 InterstitialManager.preload(applicationContext)
             }
