@@ -36,12 +36,16 @@ object AdIds {
 
     /**
      * Aparelhos que sempre recebem anúncios de teste, mesmo num build de release
-     * com os IDs reais. O hash deriva do identificador de publicidade do aparelho,
-     * não do app — por isso os mesmos valores do LuckyDraw valem aqui.
+     * com os IDs reais.
      *
-     * ⚠️ O hash muda quando o identificador de publicidade é redefinido. A fonte
-     * de verdade é o painel: **AdMob → Configurações → Dispositivos de teste**.
-     * Esta lista é só uma segunda camada.
+     * ⚠️ O mesmo aparelho gera hashes diferentes conforme **a chave que assinou o
+     * app**: no Redmi, o build local (chave de debug) deu `E3153D…` e o app
+     * baixado da Play (assinado pelo Google) deu `6CD394C0…`. Por isso um hash
+     * testado em debug não protege a versão da loja. Também muda quando o
+     * identificador de publicidade é redefinido.
+     *
+     * A fonte de verdade é o painel **AdMob → Configurações → Dispositivos de
+     * teste**, que vale na hora e sem nova versão. Esta lista é a segunda camada.
      */
     val TEST_DEVICE_IDS: List<String> = listOf(
         "6CD394C0EB5DE91059535D5B35FC532F", // Redmi Note 9S — app instalado pela Play
