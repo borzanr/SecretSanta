@@ -44,6 +44,7 @@ object AdIds {
      * Esta lista é só uma segunda camada.
      */
     val TEST_DEVICE_IDS: List<String> = listOf(
+        "6CD394C0EB5DE91059535D5B35FC532F", // Redmi Note 9S — app instalado pela Play
         "8B3FEDD52B52AD340B8E016780B25AD0", // Redmi Note 9S — após reset do AAID
         "E3153D8858021F4D58DC5E9F4F11BDD9", // Redmi Note 9S — hash anterior
     )
