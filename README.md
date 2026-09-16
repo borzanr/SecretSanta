@@ -88,6 +88,23 @@ sai de `adb exec-out run-as com.borzanti.secretsanta.debug cat files/datastore/s
 - [x] **Site:** publicado em `https://secretsanta.borzanti.com` (repositório
       `borzanr/secretsanta-site`, GitHub Pages, CNAME no Squarespace).
 - [x] Ícone próprio e `playstore/` com screenshots nos 3 idiomas.
-- [ ] Keystore de upload própria em `~/keystores` + `keystore.properties`.
-- [ ] Na Play Console: política de privacidade em
-      `https://secretsanta.borzanti.com/privacy/`.
+- [x] Keystore de upload própria (`~/keystores/secretsanta-upload.jks`, SHA-256 `12:E2:8F:C1…`).
+- [x] Enviado para revisão em 16/09/2026: versão 2 (1.1), todos os países **exceto EEE,
+      Reino Unido e Suíça**.
+
+## Pendências depois da aprovação
+
+- [ ] **Europa.** Em 16/09 a mensagem GDPR do AdMob ("LuckyDraw GDPR", com os três
+      apps) estava publicada, mas o UMP respondia `NOT_REQUIRED` para o App ID real
+      mesmo com a geografia EEA simulada — com o App ID de exemplo do Google o
+      formulário aparecia, então o problema é do lado da conta. Hipótese: o AdMob só
+      aplica a mensagem depois que o app é vinculado à loja. Passos: vincular à loja
+      (abaixo), `adb shell pm clear com.borzanti.secretsanta.debug`, abrir o debug e
+      procurar `privacyOptions=REQUIRED` no logcat da tag `ConsentManager` (ou o
+      formulário na tela). Quando aparecer, adicionar os 32 países em Produção →
+      Países/regiões (não exige nova versão).
+- [ ] **AdMob → Apps → Secret Santa → Vincular à loja.**
+- [ ] Conferir a ficha pública nos 3 idiomas e o botão "Baixar no Google Play" da
+      página dos links e da landing.
+- [ ] Próxima versão: nada pendente no código; o hash de teste da versão da Play já
+      está em `AdIds.TEST_DEVICE_IDS`.
