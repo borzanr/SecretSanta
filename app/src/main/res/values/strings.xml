@@ -125,6 +125,32 @@
     <string name="menu_language">Language</string>
     <string name="language_system">System language</string>
 
+    <!-- Guia -->
+    <string name="group_add_supporting">Separate names with commas or put one per line</string>
+    <plurals name="group_add_detected">
+        <item quantity="one">%1$d name found</item>
+        <item quantity="other">%1$d names found</item>
+    </plurals>
+    <string name="participant_add_wishes_hint">Tap to add gift ideas</string>
+    <string name="guide_title">How it works</string>
+    <string name="guide_step1">Add everyone. You can paste the whole list at once, with names separated by commas.</string>
+    <string name="guide_step2">Optional: tap a person to add gift ideas, and use the rules so couples never draw each other.</string>
+    <string name="guide_step3">Tap Draw names and choose: a private link for each person, or pass the phone around.</string>
+    <string name="help_group_title">Build the group</string>
+    <string name="help_group_body">Create a group and add the people. Type one name at a time or paste the whole list at once, separating names with commas, semicolons or one per line. The group stays saved for next year.</string>
+    <string name="help_wishes_title">Gift ideas and budget</string>
+    <string name="help_wishes_body">Tap a person to write up to 3 gift ideas. Whoever draws that person sees the ideas along with the name. If you fill in the gift budget, everyone sees it.</string>
+    <string name="help_rules_title">Who can\'t draw whom</string>
+    <string name="help_rules_body">Use rules for couples, siblings or anyone who already exchanges gifts. The draw always respects them. If the rules make a draw impossible, the app tells you instead of guessing.</string>
+    <string name="help_links_title">Send each person a link</string>
+    <string name="help_links_body">After drawing, tap Send next to each name and share the link through any messaging app. The person opens it in the browser and sees who they got. Nobody needs to install anything. Send each link only to the person named on it.</string>
+    <string name="help_phone_title">Pass the phone</string>
+    <string name="help_phone_body">With everyone together, each person taps their own name, confirms it is them, sees who they got and passes the phone on. This draw is not saved: if you leave before everyone has seen it, you will need to draw again.</string>
+    <string name="help_privacy_title">Nobody peeks</string>
+    <string name="help_privacy_body">Not even the organizer sees who got whom. Each result travels inside its own link and is never stored on a server.</string>
+    <string name="help_changes_title">Changed the group after drawing?</string>
+    <string name="help_changes_body">If someone joins or leaves, or a gift idea changes, the old links go out of date. The app warns you and asks you to draw again. Remember to send the new links to everyone.</string>
+
     <!-- Comuns -->
     <string name="common_back">Back</string>
     <string name="common_cancel">Cancel</string>

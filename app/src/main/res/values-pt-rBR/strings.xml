@@ -125,6 +125,32 @@
     <string name="menu_language">Idioma</string>
     <string name="language_system">Idioma do sistema</string>
 
+    <!-- Guia -->
+    <string name="group_add_supporting">Separe os nomes por vírgula ou coloque um por linha</string>
+    <plurals name="group_add_detected">
+        <item quantity="one">%1$d nome encontrado</item>
+        <item quantity="other">%1$d nomes encontrados</item>
+    </plurals>
+    <string name="participant_add_wishes_hint">Toque para adicionar sugestões</string>
+    <string name="guide_title">Como funciona</string>
+    <string name="guide_step1">Adicione todo mundo. Dá para colar a lista inteira de uma vez, com os nomes separados por vírgula.</string>
+    <string name="guide_step2">Opcional: toque numa pessoa para anotar sugestões de presente, e use as regras para casais não se tirarem.</string>
+    <string name="guide_step3">Toque em Sortear e escolha: um link secreto para cada um, ou passar o celular.</string>
+    <string name="help_group_title">Montar o grupo</string>
+    <string name="help_group_body">Crie um grupo e adicione os participantes. Digite um nome por vez ou cole a lista inteira de uma vez, separando os nomes por vírgula, ponto e vírgula ou um por linha. O grupo fica salvo para o ano que vem.</string>
+    <string name="help_wishes_title">Sugestões e valor</string>
+    <string name="help_wishes_body">Toque numa pessoa para anotar até 3 sugestões de presente. Quem tirar essa pessoa vê as sugestões junto com o nome. Se você preencher o valor do presente, todo mundo vê.</string>
+    <string name="help_rules_title">Quem não pode tirar quem</string>
+    <string name="help_rules_body">Use as regras para casais, irmãos ou quem já troca presente de qualquer jeito. O sorteio sempre respeita as regras. Se elas tornarem o sorteio impossível, o app avisa em vez de chutar.</string>
+    <string name="help_links_title">Enviar um link para cada um</string>
+    <string name="help_links_body">Depois de sortear, toque em Enviar ao lado de cada nome e mande o link pelo app de mensagem que preferir. A pessoa abre no navegador e vê quem tirou. Ninguém precisa instalar nada. Mande cada link só para a pessoa do nome.</string>
+    <string name="help_phone_title">Passar o celular</string>
+    <string name="help_phone_body">Com todo mundo junto, cada um toca no próprio nome, confirma que é ele, vê quem tirou e passa o celular adiante. Esse sorteio não fica salvo: se sair antes de todos verem, é preciso sortear de novo.</string>
+    <string name="help_privacy_title">Ninguém espia</string>
+    <string name="help_privacy_body">Nem quem organiza vê quem tirou quem. Cada resultado viaja dentro do próprio link e nunca fica guardado em servidor.</string>
+    <string name="help_changes_title">Mudou o grupo depois de sortear?</string>
+    <string name="help_changes_body">Se alguém entrar ou sair, ou uma sugestão mudar, os links antigos ficam desatualizados. O app avisa e pede para sortear de novo. Lembre de mandar os links novos para todo mundo.</string>
+
     <!-- Comuns -->
     <string name="common_back">Voltar</string>
     <string name="common_cancel">Cancelar</string>

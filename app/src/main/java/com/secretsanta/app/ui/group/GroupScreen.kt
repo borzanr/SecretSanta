@@ -128,17 +128,6 @@ fun GroupScreen(
                         onClick = { choosingMode = true },
                         enabled = canDraw,
                     )
-                    if (!canDraw) {
-                        Text(
-                            stringResource(
-                                R.string.group_needs_more,
-                                SecretSantaEngine.MIN_PARTICIPANTS,
-                            ),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp),
-                        )
-                    }
                 }
                 // Banner fora da coluna do botão e com folga acima: anúncio colado
                 // na ação principal gera clique acidental, que a política do AdMob
@@ -191,6 +180,13 @@ fun GroupScreen(
             }
 
             item { AddParticipantField(onAdd = onAddParticipants) }
+
+            // Guia curto só enquanto o grupo não dá para sortear, logo abaixo do
+            // campo que ele ensina a usar — acima, empurrava o campo para fora da
+            // tela. Some sozinho quando o grupo fica pronto.
+            if (!canDraw) {
+                item { QuickGuide() }
+            }
 
             items(group.participants, key = { it.id }) { participant ->
                 ParticipantRow(participant = participant, onClick = { editing = participant })
@@ -308,16 +304,31 @@ private fun RestrictionsRow(group: Group, onClick: () -> Unit) {
 @Composable
 private fun AddParticipantField(onAdd: (String) -> Unit) {
     var text by remember { mutableStateOf("") }
+    // Mesmo parser que o ViewModel usa ao adicionar: o número mostrado é o
+    // número de pessoas que de fato vão entrar (antes de descartar repetidos).
+    val detected = remember(text) { SecretSantaEngine.parse(text).size }
 
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.Top,
     ) {
         OutlinedTextField(
             value = text,
             onValueChange = { text = it },
             label = { Text(stringResource(R.string.group_add_hint)) },
+            // Ensina o atalho de colar a lista no lugar em que ele é usado: a
+            // dica fica visível desde o começo e, ao colar vários nomes, vira a
+            // contagem — a confirmação de que o app entendeu a lista.
+            supportingText = {
+                Text(
+                    if (detected >= 2) {
+                        pluralStringResource(R.plurals.group_add_detected, detected, detected)
+                    } else {
+                        stringResource(R.string.group_add_supporting)
+                    },
+                )
+            },
             modifier = Modifier.weight(1f),
         )
         FilledTonalIconButton(
@@ -341,10 +352,15 @@ private fun ParticipantRow(participant: Participant, onClick: () -> Unit) {
     ) {
         ListItem(
             headlineContent = { Text(participant.name) },
-            supportingContent = if (participant.wishes.isEmpty()) {
-                null
-            } else {
-                {
+            // Sem sugestões, a linha diz que é tocável. Antes ficava só o nome, e
+            // nada indicava que existiam sugestões para preencher.
+            supportingContent = {
+                if (participant.wishes.isEmpty()) {
+                    Text(
+                        stringResource(R.string.participant_add_wishes_hint),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                    )
+                } else {
                     Text(
                         pluralStringResource(
                             R.plurals.participant_wishes_count,
@@ -356,5 +372,46 @@ private fun ParticipantRow(participant: Participant, onClick: () -> Unit) {
             },
             colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.surface),
         )
+    }
+}
+
+@Composable
+private fun QuickGuide() {
+    val steps = listOf(R.string.guide_step1, R.string.guide_step2, R.string.guide_step3)
+    Card(
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        shape = MaterialTheme.shapes.medium,
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Text(
+                stringResource(R.string.guide_title),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            // O mínimo para sortear mora aqui, e não no rodapé: o guia só aparece
+            // nessa situação, e no rodapé a frase roubava a altura que o guia precisa.
+            Text(
+                stringResource(R.string.group_needs_more, SecretSantaEngine.MIN_PARTICIPANTS),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            steps.forEachIndexed { index, step ->
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(
+                        "${index + 1}",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Text(
+                        stringResource(step),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
+                    )
+                }
+            }
+        }
     }
 }

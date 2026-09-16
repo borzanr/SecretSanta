@@ -27,6 +27,7 @@ import com.secretsanta.app.share.revealLanguage
 import com.secretsanta.app.ui.components.SuspenseOverlay
 import com.secretsanta.app.ui.group.GroupScreen
 import com.secretsanta.app.ui.groups.GroupsScreen
+import com.secretsanta.app.ui.help.HelpScreen
 import com.secretsanta.app.ui.links.LinksScreen
 import com.secretsanta.app.ui.restrictions.RestrictionsScreen
 import com.secretsanta.app.ui.reveal.PassThePhoneScreen
@@ -37,6 +38,7 @@ private object Routes {
     const val RESTRICTIONS = "restrictions"
     const val REVEAL = "reveal"
     const val LINKS = "links"
+    const val HELP = "help"
 }
 
 private const val PRIVACY_URL = "https://secretsanta.borzanti.com/privacy/"
@@ -110,6 +112,7 @@ fun SecretSantaApp(viewModel: SecretSantaViewModel = viewModel()) {
                 onPrivacyPolicy = {
                     activity?.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("$PRIVACY_URL#$language")))
                 },
+                onHelp = { navController.navigate(Routes.HELP) },
             )
         }
 
@@ -152,6 +155,10 @@ fun SecretSantaApp(viewModel: SecretSantaViewModel = viewModel()) {
 
                 else -> Unit
             }
+        }
+
+        composable(Routes.HELP) {
+            HelpScreen(onBack = { navController.popBackStack() })
         }
 
         composable(Routes.RESTRICTIONS) {

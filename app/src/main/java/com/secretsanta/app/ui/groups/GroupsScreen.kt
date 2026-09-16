@@ -62,6 +62,7 @@ fun GroupsScreen(
     showPrivacyOptions: Boolean,
     onPrivacyOptions: () -> Unit,
     onPrivacyPolicy: () -> Unit,
+    onHelp: () -> Unit,
 ) {
     var creating by remember { mutableStateOf(false) }
     var pendingDelete by remember { mutableStateOf<Group?>(null) }
@@ -77,6 +78,13 @@ fun GroupsScreen(
                         Icon(Icons.Default.MoreVert, contentDescription = stringResource(R.string.menu_more))
                     }
                     DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.guide_title)) },
+                            onClick = {
+                                menuOpen = false
+                                onHelp()
+                            },
+                        )
                         // Só aparece onde a lei exige (EEE, Reino Unido, Suíça):
                         // fora dessas regiões o formulário não tem o que mostrar.
                         if (showPrivacyOptions) {

@@ -125,6 +125,32 @@
     <string name="menu_language">Idioma</string>
     <string name="language_system">Idioma del sistema</string>
 
+    <!-- Guía -->
+    <string name="group_add_supporting">Separa los nombres con comas o pon uno por línea</string>
+    <plurals name="group_add_detected">
+        <item quantity="one">%1$d nombre encontrado</item>
+        <item quantity="other">%1$d nombres encontrados</item>
+    </plurals>
+    <string name="participant_add_wishes_hint">Toca para agregar ideas de regalo</string>
+    <string name="guide_title">Cómo funciona</string>
+    <string name="guide_step1">Agrega a todos. Puedes pegar la lista completa de una vez, con los nombres separados por comas.</string>
+    <string name="guide_step2">Opcional: toca a una persona para anotar ideas de regalo, y usa las reglas para que las parejas no se saquen.</string>
+    <string name="guide_step3">Toca Sortear y elige: un enlace privado para cada uno, o pasar el teléfono.</string>
+    <string name="help_group_title">Armar el grupo</string>
+    <string name="help_group_body">Crea un grupo y agrega a los participantes. Escribe un nombre a la vez o pega la lista completa de una vez, separando los nombres con comas, punto y coma o uno por línea. El grupo queda guardado para el año que viene.</string>
+    <string name="help_wishes_title">Ideas de regalo y valor</string>
+    <string name="help_wishes_body">Toca a una persona para anotar hasta 3 ideas de regalo. Quien saque a esa persona ve las ideas junto con el nombre. Si completas el valor del regalo, todos lo ven.</string>
+    <string name="help_rules_title">Quién no puede sacar a quién</string>
+    <string name="help_rules_body">Usa las reglas para parejas, hermanos o quienes ya se regalan igual. El sorteo siempre las respeta. Si las reglas hacen imposible el sorteo, la app te avisa en lugar de adivinar.</string>
+    <string name="help_links_title">Enviar un enlace a cada uno</string>
+    <string name="help_links_body">Después de sortear, toca Enviar junto a cada nombre y comparte el enlace por la app de mensajes que prefieras. La persona lo abre en el navegador y ve a quién le tocó. Nadie necesita instalar nada. Envía cada enlace solo a la persona de ese nombre.</string>
+    <string name="help_phone_title">Pasar el teléfono</string>
+    <string name="help_phone_body">Con todos juntos, cada persona toca su nombre, confirma que es ella, ve a quién le tocó y pasa el teléfono. Este sorteo no queda guardado: si sales antes de que todos lo vean, hay que sortear de nuevo.</string>
+    <string name="help_privacy_title">Nadie espía</string>
+    <string name="help_privacy_body">Ni quien organiza ve a quién le tocó quién. Cada resultado viaja dentro de su propio enlace y nunca se guarda en un servidor.</string>
+    <string name="help_changes_title">¿Cambiaste el grupo después de sortear?</string>
+    <string name="help_changes_body">Si alguien entra o sale, o cambia una idea de regalo, los enlaces anteriores quedan desactualizados. La app avisa y pide sortear de nuevo. Recuerda enviar los enlaces nuevos a todos.</string>
+
     <!-- Comunes -->
     <string name="common_back">Volver</string>
     <string name="common_cancel">Cancelar</string>
