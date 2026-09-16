@@ -1,0 +1,166 @@
+<meta charset="utf-8">
+<!--
+  Screenshot 1080×1920 da ficha. Uso: shot.html?n=1..6&lang=pt|en|es
+  Os prints em shots-<lang>/ são capturas reais do Redmi. Cada slide diz quanto
+  cortar em cima (barra de status, barra do Chrome, aviso de tradução) e embaixo
+  (banner de anúncio de teste, barra de navegação), em pixels da captura.
+-->
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1080px; height: 1920px; overflow: hidden; position: relative;
+    background: #140E20;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .glow-top {
+    position: absolute; left: 50%; top: -460px; transform: translateX(-50%);
+    width: 1300px; height: 1000px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(124,91,199,.38) 0%, rgba(124,91,199,.10) 48%, rgba(124,91,199,0) 70%);
+  }
+  .glow-bottom {
+    position: absolute; left: 50%; bottom: -560px; transform: translateX(-50%);
+    width: 1300px; height: 900px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(224,179,84,.16) 0%, rgba(224,179,84,0) 66%);
+  }
+  .bit { position: absolute; border-radius: 4px; }
+
+  header { position: relative; text-align: center; padding: 100px 70px 0; flex: none; }
+  h1 { font-size: 80px; font-weight: 800; letter-spacing: -2px; line-height: 1.06; color: #F2E8D5; margin: 0 0 22px; }
+  h1 em { font-style: normal; color: #E0B354; }
+  .sub { font-size: 36px; font-weight: 500; color: #A99BC0; margin: 0; line-height: 1.32; }
+
+  .phone {
+    position: relative; margin: auto 0; overflow: hidden;
+    border-radius: 44px; border: 9px solid #2E2446;
+    box-shadow: 0 0 0 2px rgba(224,179,84,.18), 0 40px 90px rgba(0,0,0,.6), 0 0 140px rgba(124,91,199,.22);
+    background: #140E20;
+  }
+  .phone img { display: block; position: absolute; left: 0; }
+
+  .closing { position: relative; text-align: center; padding: 0 80px; margin: auto 0; }
+  .closing svg { width: 300px; height: auto; filter: drop-shadow(0 0 40px rgba(224,179,84,.35)); }
+  .uses { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+  .use {
+    display: flex; align-items: center; gap: 26px; text-align: left;
+    background: #1E1630; border: 2px solid #3D3157; border-radius: 26px; padding: 30px 34px;
+  }
+  .use b { font-size: 40px; font-weight: 700; color: #F2E8D5; display: block; }
+  .use span { font-size: 29px; color: #A99BC0; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; flex: none; background: #E0B354; box-shadow: 0 0 18px rgba(224,179,84,.8); }
+  .dot.a { background: #7C5BC7; box-shadow: 0 0 18px rgba(124,91,199,.9); }
+  .dot.c { background: #6BD6F0; box-shadow: 0 0 18px rgba(107,214,240,.8); }
+  .hidden { display: none !important; }
+</style>
+
+<div class="glow-top"></div>
+<div class="glow-bottom"></div>
+<div class="bit" style="left:46px; top:70px; width:34px; height:15px; background:#E0B354; transform:rotate(-24deg);"></div>
+<div class="bit" style="left:1004px; top:104px; width:28px; height:14px; background:#7C5BC7; transform:rotate(32deg);"></div>
+<div class="bit" style="left:58px; top:700px; width:22px; height:22px; border-radius:50%; background:#6BD6F0; opacity:.7;"></div>
+<div class="bit" style="left:990px; top:980px; width:26px; height:13px; background:#F2E8D5; opacity:.8; transform:rotate(18deg);"></div>
+<div class="bit" style="left:64px; top:1560px; width:26px; height:13px; background:#E0B354; transform:rotate(-38deg);"></div>
+
+<header>
+  <h1 id="title"></h1>
+  <p class="sub" id="sub"></p>
+</header>
+
+<div class="phone" id="phone"><img id="shot" alt=""></div>
+
+<div class="closing hidden" id="closing">
+  <svg viewBox="0 0 200 190" xmlns="http://www.w3.org/2000/svg">
+    <rect x="22" y="78" width="156" height="104" rx="12" fill="#7C5BC7"/>
+    <rect x="88" y="78" width="24" height="104" fill="#E0B354"/>
+    <rect x="12" y="54" width="176" height="34" rx="10" fill="#8D6BD6"/>
+    <rect x="88" y="54" width="24" height="34" fill="#E0B354"/>
+    <path d="M100 54 C 70 10, 30 30, 58 50 Z" fill="#E0B354"/>
+    <path d="M100 54 C 130 10, 170 30, 142 50 Z" fill="#E0B354"/>
+    <circle cx="100" cy="52" r="9" fill="#B8872F"/>
+  </svg>
+  <div class="uses">
+    <div class="use"><i class="dot"></i><div><b></b><span></span></div></div>
+    <div class="use"><i class="dot a"></i><div><b></b><span></span></div></div>
+    <div class="use"><i class="dot c"></i><div><b></b><span></span></div></div>
+  </div>
+</div>
+
+<script>
+  // top/bottom: faixa da captura (1080×2400) que aparece dentro da moldura.
+  var CROPS = {
+    links:  { top: 105, bottom: 2260 },
+    reveal: { top: 450, bottom: 1830 },
+    group:  { top: 105, bottom: 1915 },
+    rules:  { top: 105, bottom: 2270 },
+    mode:   { top: 105, bottom: 2270 }
+  };
+
+  var SLIDES = {
+    pt: [
+      { t: "Um <em>link secreto</em> para cada um", s: "Mande por qualquer app de mensagem. Nem quem organiza vê quem tirou quem.", img: "links" },
+      { t: "Cada um abre <em>o seu presente</em>", s: "Direto no navegador, sem baixar nada e sem cadastro", img: "reveal" },
+      { t: "Cole a <em>lista do grupo</em>", s: "Nomes, valor do presente e sugestões de cada um", img: "group" },
+      { t: "Casais <em>não se tiram</em>", s: "Marque quem não pode tirar quem e o sorteio respeita", img: "rules" },
+      { t: "Longe ou <em>todos juntos</em>", s: "Links no celular de cada um, ou passe o aparelho na roda", img: "mode" },
+      { t: "O amigo secreto <em>sem dor de cabeça</em>", s: null, uses: [
+        ["Sem e-mail, sem cadastro", "Nada de convite caindo no spam"],
+        ["Grátis de verdade", "Sem pagar para enviar os resultados"],
+        ["Sorteio que fecha a conta", "Todo mundo dá e recebe um presente só"] ] }
+    ],
+    en: [
+      { t: "A <em>private link</em> for everyone", s: "Send it in any chat. Not even the organizer sees who got whom.", img: "links" },
+      { t: "Everyone opens <em>their own gift</em>", s: "Right in the browser. No download, no signup.", img: "reveal" },
+      { t: "Paste your <em>group list</em>", s: "Names, gift budget and ideas for each person", img: "group" },
+      { t: "Couples <em>never match</em>", s: "Mark who can't draw whom and the draw respects it", img: "rules" },
+      { t: "Apart or <em>together</em>", s: "Links on every phone, or pass one phone around the room", img: "mode" },
+      { t: "Secret Santa <em>without the hassle</em>", s: null, uses: [
+        ["No email, no signup", "No invites lost in spam folders"],
+        ["Actually free", "No paywall to send the results"],
+        ["A draw that adds up", "Everyone gives one gift and gets one"] ] }
+    ],
+    es: [
+      { t: "Un <em>enlace privado</em> para cada uno", s: "Envíalo por cualquier chat. Ni quien organiza ve a quién le tocó quién.", img: "links" },
+      { t: "Cada uno abre <em>su regalo</em>", s: "En el navegador, sin descargar nada y sin registro", img: "reveal" },
+      { t: "Pega la <em>lista del grupo</em>", s: "Nombres, valor del regalo e ideas para cada uno", img: "group" },
+      { t: "Las parejas <em>no se sacan</em>", s: "Marca quién no puede sacar a quién y el sorteo lo respeta", img: "rules" },
+      { t: "Lejos o <em>todos juntos</em>", s: "Enlaces en cada teléfono, o pasa uno de mano en mano", img: "mode" },
+      { t: "Amigo invisible <em>sin complicaciones</em>", s: null, uses: [
+        ["Sin correo, sin registro", "Nada de invitaciones en spam"],
+        ["Gratis de verdad", "Sin pagar para enviar resultados"],
+        ["Un sorteo que cuadra", "Todos dan y reciben un solo regalo"] ] }
+    ]
+  };
+
+  var params = new URLSearchParams(location.search);
+  var lang = SLIDES[params.get("lang")] ? params.get("lang") : "pt";
+  var slide = SLIDES[lang][(parseInt(params.get("n"), 10) || 1) - 1];
+
+  document.getElementById("title").innerHTML = slide.t;
+  var sub = document.getElementById("sub");
+  if (slide.s) sub.textContent = slide.s; else sub.classList.add("hidden");
+
+  if (slide.img) {
+    var crop = CROPS[slide.img];
+    var header = document.querySelector("header").getBoundingClientRect();
+    var available = 1920 - header.bottom - 110;          // folga para respirar embaixo
+    var cropHeight = crop.bottom - crop.top;
+    var width = Math.min(720, Math.round(available * 1080 / cropHeight));
+    var scale = width / 1080;
+
+    var phone = document.getElementById("phone");
+    phone.style.width = width + "px";
+    phone.style.height = Math.round(cropHeight * scale) + "px";
+    var img = document.getElementById("shot");
+    img.src = "shots-" + lang + "/" + slide.img + ".png";
+    img.style.width = width + "px";
+    img.style.top = -Math.round(crop.top * scale) + "px";
+  } else {
+    document.getElementById("phone").classList.add("hidden");
+    document.getElementById("closing").classList.remove("hidden");
+    var rows = document.querySelectorAll(".use");
+    slide.uses.forEach(function (use, i) {
+      rows[i].querySelector("b").textContent = use[0];
+      rows[i].querySelector("span").textContent = use[1];
+    });
+  }
+</script>

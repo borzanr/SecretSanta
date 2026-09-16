@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<!-- Gráfico de destaque 1024×500, um por idioma (?lang=pt|en|es). -->
+<style>
+  html, body { margin: 0; }
+  body { width: 1024px; height: 500px; overflow: hidden; position: relative;
+    background: #140E20; font-family: "Segoe UI", system-ui, Arial, sans-serif; }
+  .art { position: absolute; right: 0; top: 0; height: 500px; width: auto; }
+  .fade { position: absolute; inset: 0;
+    background: linear-gradient(90deg, #140E20 0%, #140E20 34%, rgba(20,14,32,.85) 44%, rgba(20,14,32,0) 62%); }
+  .copy { position: absolute; left: 56px; top: 0; bottom: 0; width: 400px;
+    display: flex; flex-direction: column; justify-content: center; }
+  h1 { margin: 0 0 18px; color: #F2E8D5; font-size: 50px; line-height: 1.05; font-weight: 800; letter-spacing: -1px; }
+  h1 em { font-style: normal; color: #E0B354; }
+  p { margin: 0; color: #A99BC0; font-size: 26px; line-height: 1.3; font-weight: 500; }
+</style>
+<img class="art" id="art" alt="">
+<div class="fade"></div>
+<div class="copy"><h1 id="t"></h1><p id="s"></p></div>
+<script>
+  var T = {
+    pt: { art: "key-pt.jpg", t: "Sorteie. <em>Ninguém espia.</em>", s: "Amigo secreto sem e-mail e sem cadastro" },
+    en: { art: "key-en.jpg", t: "Draw names. <em>Nobody peeks.</em>", s: "Secret Santa with no email and no signup" },
+    es: { art: "key-en.jpg", t: "Sortea. <em>Nadie espía.</em>", s: "Amigo invisible sin correo y sin registro" }
+  };
+  var lang = new URLSearchParams(location.search).get("lang");
+  var t = T[lang] || T.pt;
+  document.getElementById("art").src = t.art;
+  document.getElementById("t").innerHTML = t.t;
+  document.getElementById("s").textContent = t.s;
+</script>

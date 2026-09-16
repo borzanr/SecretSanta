@@ -1,5 +1,7 @@
 package com.secretsanta.app.ui.groups
 
+import android.app.Activity
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +28,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -38,6 +41,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -45,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import com.secretsanta.app.R
 import com.secretsanta.app.ads.BannerAd
 import com.secretsanta.app.data.Group
+import com.secretsanta.app.ui.AppLanguage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,6 +66,7 @@ fun GroupsScreen(
     var creating by remember { mutableStateOf(false) }
     var pendingDelete by remember { mutableStateOf<Group?>(null) }
     var menuOpen by remember { mutableStateOf(false) }
+    var choosingLanguage by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -81,6 +88,13 @@ fun GroupsScreen(
                                 },
                             )
                         }
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.menu_language)) },
+                            onClick = {
+                                menuOpen = false
+                                choosingLanguage = true
+                            },
+                        )
                         DropdownMenuItem(
                             text = { Text(stringResource(R.string.menu_privacy_policy)) },
                             onClick = {
@@ -128,6 +142,10 @@ fun GroupsScreen(
                 }
             }
         }
+    }
+
+    if (choosingLanguage) {
+        LanguageDialog(onDismiss = { choosingLanguage = false })
     }
 
     if (creating) {
@@ -243,6 +261,51 @@ private fun NewGroupDialog(onDismiss: () -> Unit, onConfirm: (String) -> Unit) {
             ) { Text(stringResource(R.string.common_create)) }
         },
         dismissButton = {
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.common_cancel)) }
+        },
+    )
+}
+
+/** Nome de cada idioma escrito nele mesmo, para quem não lê o idioma atual achar o seu. */
+@Composable
+private fun LanguageDialog(onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    val current = remember { AppLanguage.current(context) }
+    val system = stringResource(R.string.language_system)
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.menu_language)) },
+        text = {
+            Column {
+                AppLanguage.OPTIONS.forEach { tag ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(MaterialTheme.shapes.small)
+                            .clickable {
+                                onDismiss()
+                                if (tag != current) {
+                                    AppLanguage.set(context, tag)
+                                    // Recria a Activity para attachBaseContext aplicar o
+                                    // idioma novo. O grupo aberto vive no ViewModel e sobrevive.
+                                    (context as? Activity)?.recreate()
+                                }
+                            }
+                            .padding(vertical = 4.dp),
+                    ) {
+                        RadioButton(selected = tag == current, onClick = null)
+                        Text(
+                            text = AppLanguage.nativeName(tag) ?: system,
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.padding(start = 12.dp),
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
             TextButton(onClick = onDismiss) { Text(stringResource(R.string.common_cancel)) }
         },
     )

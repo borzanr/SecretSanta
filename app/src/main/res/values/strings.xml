@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Secret Santa</string>
+    <string name="app_name">Secret Santa</string>
 
     <!-- Lista de grupos -->
     <string name="groups_title">Your groups</string>
@@ -122,6 +122,8 @@
     <string name="menu_more">More options</string>
     <string name="menu_privacy_options">Privacy options</string>
     <string name="menu_privacy_policy">Privacy policy</string>
+    <string name="menu_language">Language</string>
+    <string name="language_system">System language</string>
 
     <!-- Comuns -->
     <string name="common_back">Back</string>

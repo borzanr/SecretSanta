@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Amigo Secreto</string>
+
     <!-- Lista de grupos -->
     <string name="groups_title">Seus grupos</string>
     <string name="groups_empty_title">Nenhum grupo ainda</string>
@@ -120,6 +122,8 @@
     <string name="menu_more">Mais opções</string>
     <string name="menu_privacy_options">Opções de privacidade</string>
     <string name="menu_privacy_policy">Política de privacidade</string>
+    <string name="menu_language">Idioma</string>
+    <string name="language_system">Idioma do sistema</string>
 
     <!-- Comuns -->
     <string name="common_back">Voltar</string>

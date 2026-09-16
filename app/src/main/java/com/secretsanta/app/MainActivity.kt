@@ -1,5 +1,6 @@
 package com.secretsanta.app
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,6 +12,7 @@ import com.google.android.gms.ads.MobileAds
 import com.secretsanta.app.ads.AdIds
 import com.secretsanta.app.ads.ConsentManager
 import com.secretsanta.app.ads.InterstitialManager
+import com.secretsanta.app.ui.AppLanguage
 import com.secretsanta.app.ui.SecretSantaApp
 import com.secretsanta.app.ui.theme.SecretSantaTheme
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +20,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(AppLanguage.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // O app é sempre escuro, independente do tema do sistema: as barras

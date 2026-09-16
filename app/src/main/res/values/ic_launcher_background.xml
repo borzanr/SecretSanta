@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Violeta um tom acima do fundo do app, para o ícone não sumir em wallpapers escuros. -->
+    <color name="ic_launcher_background">#2A1B45</color>
+</resources>

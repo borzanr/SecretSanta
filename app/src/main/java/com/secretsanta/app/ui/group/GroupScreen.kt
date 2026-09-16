@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.isImeVisible
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -54,7 +56,7 @@ import com.secretsanta.app.ads.BannerAd
 import com.secretsanta.app.ui.RevealMode
 import com.secretsanta.app.ui.components.DrawButton
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun GroupScreen(
     group: Group,
@@ -110,8 +112,11 @@ fun GroupScreen(
         // Sortear fica fixo no rodapé. No fim da lista, um grupo de 15 pessoas
         // obrigava a rolar até o final só para achar a ação principal da tela.
         bottomBar = {
-            Surface(color = MaterialTheme.colorScheme.background) {
-              Column(Modifier.fillMaxWidth().navigationBarsPadding().imePadding()) {
+            // Some enquanto o teclado está aberto. Subindo junto com ele, Sortear e
+            // o banner ocupavam quase toda a área visível e escondiam o próprio
+            // campo em que a pessoa estava digitando.
+            if (!WindowInsets.isImeVisible) Surface(color = MaterialTheme.colorScheme.background) {
+              Column(Modifier.fillMaxWidth().navigationBarsPadding()) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()

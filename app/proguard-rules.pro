@@ -1,10 +1,11 @@
 # kotlinx.serialization keeps generated serializers reachable
 -keepattributes *Annotation*, InnerClasses
 -dontnote kotlinx.serialization.**
--keepclassmembers class com.luckydraw.app.data.** {
+# Dados persistidos (data/) e payload do link (share/).
+-keepclassmembers class com.secretsanta.app.** {
     *** Companion;
 }
--keepclasseswithmembers class com.luckydraw.app.data.** {
+-keepclasseswithmembers class com.secretsanta.app.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 

@@ -50,6 +50,17 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+
+        // Igual ao release (R8 + shrink), mas instalável ao lado do app da Play e
+        // assinado com a chave de debug. Serve para pegar no aparelho o que só o
+        // R8 quebra — serialização, reflexão — sem ocupar o applicationId real,
+        // o que no MIUI obrigaria a desinstalar para depois instalar pela loja.
+        create("staging") {
+            initWith(getByName("release"))
+            applicationIdSuffix = ".staging"
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+        }
     }
 
     compileOptions {

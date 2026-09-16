@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Foreground do ícone adaptativo: o mesmo presente da página de revelação
+    (site/r/index.html), para app e link serem reconhecidos como a mesma coisa.
+
+    Desenhado no espaço 200×190 do SVG da página e reduzido por um grupo com
+    escala 0.29, o que põe o presente dentro do círculo seguro (66dp de
+    108dp) — nenhuma máscara de launcher corta a fita nem o laço.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <group
+        android:scaleX="0.29"
+        android:scaleY="0.29"
+        android:translateX="25"
+        android:translateY="26.5">
+
+        <!-- Caixa -->
+        <path
+            android:fillColor="#7C5BC7"
+            android:pathData="M34,78 H166 A12,12 0 0 1 178,90 V170 A12,12 0 0 1 166,182 H34 A12,12 0 0 1 22,170 V90 A12,12 0 0 1 34,78 Z" />
+        <!-- Sombra inferior da caixa -->
+        <path
+            android:fillColor="#33000000"
+            android:pathData="M22,140 H178 V170 A12,12 0 0 1 166,182 H34 A12,12 0 0 1 22,170 Z" />
+        <!-- Fita vertical -->
+        <path
+            android:fillColor="#E0B354"
+            android:pathData="M88,78 H112 V182 H88 Z" />
+
+        <!-- Tampa -->
+        <path
+            android:fillColor="#8D6BD6"
+            android:pathData="M22,54 H178 A10,10 0 0 1 188,64 V78 A10,10 0 0 1 178,88 H22 A10,10 0 0 1 12,78 V64 A10,10 0 0 1 22,54 Z" />
+        <path
+            android:fillColor="#E0B354"
+            android:pathData="M88,54 H112 V88 H88 Z" />
+
+        <!-- Laço -->
+        <path
+            android:fillColor="#E0B354"
+            android:pathData="M100,54 C70,10 30,30 58,50 Z" />
+        <path
+            android:fillColor="#E0B354"
+            android:pathData="M100,54 C130,10 170,30 142,50 Z" />
+        <path
+            android:fillColor="#B8872F"
+            android:pathData="M91,52 A9,9 0 1 1 109,52 A9,9 0 1 1 91,52 Z" />
+    </group>
+</vector>
