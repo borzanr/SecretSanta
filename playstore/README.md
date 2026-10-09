@@ -430,7 +430,7 @@ I nomi e le idee regalo restano sul tuo telefono. Il risultato viaggia dentro og
 Gratis, con pubblicità.
 ```
 
-> **Capturas de/fr/it.** Os textos dos slides já estão em `src/shot.html` e
-> `src/feature.html`, mas faltam os prints reais em `src/shots-de|fr|it/`
-> (`links`, `reveal`, `group`, `rules`, `mode`). Depois de capturá-los no
-> aparelho, inclua `de fr it` no laço de `render.sh`.
+> **Capturas de/fr/it.** Feitas em 09/10/2026 no Redmi, com o build de debug em
+> cada idioma, e já enviadas às fichas de-DE, fr-CA, fr-FR e it-IT junto com os
+> gráficos de destaque. A captura do presente em inglês (`shots-en/reveal.png`)
+> foi refeita no mesmo dia: a anterior estava com o texto em português.

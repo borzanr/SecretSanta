@@ -22,7 +22,7 @@ shot() { # shot <url> <arquivo-saida> <largura> <altura>
 
 shot "$URL/icon.html" "${OUT}\icon-512.png" 512 512
 
-for lang in pt en es; do
+for lang in pt en es de fr it; do
   shot "$URL/feature.html?lang=$lang" "${OUT}\feature-graphic-$lang.png" 1024 500
   for n in 1 2 3 4 5 6; do
     shot "$URL/shot.html?n=$n&lang=$lang" "${OUT}\screenshots-$lang\0$n.png" 1080 1920

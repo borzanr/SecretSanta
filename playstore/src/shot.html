@@ -173,7 +173,10 @@
   if (slide.s) sub.textContent = slide.s; else sub.classList.add("hidden");
 
   if (slide.img) {
-    var crop = CROPS[slide.img];
+    // Nas capturas en/de/fr/it o Chrome do aparelho já tinha a barra no topo em outro
+    // layout, o que desloca a página de revelação ~80 px para baixo.
+    var late = { en: 1, de: 1, fr: 1, it: 1 }[lang] && slide.img === "reveal";
+    var crop = late ? { top: 532, bottom: 1912 } : CROPS[slide.img];
     var header = document.querySelector("header").getBoundingClientRect();
     var available = 1920 - header.bottom - 110;          // folga para respirar embaixo
     var cropHeight = crop.bottom - crop.top;
