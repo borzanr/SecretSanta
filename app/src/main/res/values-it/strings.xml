@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Babbo Natale Segreto</string>
+
+    <!-- Elenco dei gruppi -->
+    <string name="groups_title">I tuoi gruppi</string>
+    <string name="groups_empty_title">Ancora nessun gruppo</string>
+    <string name="groups_empty_body">Crea un gruppo, aggiungi i nomi ed estrai. Senza email, senza registrazione.</string>
+    <string name="groups_new">Nuovo gruppo</string>
+    <string name="groups_name_hint">Nome del gruppo (es. Festa in ufficio)</string>
+    <string name="groups_delete_title">Eliminare questo gruppo?</string>
+    <string name="groups_delete_body">%1$s e i suoi partecipanti verranno eliminati da questo telefono.</string>
+    <plurals name="groups_people">
+        <item quantity="one">%1$d persona</item>
+        <item quantity="other">%1$d persone</item>
+    </plurals>
+    <string name="groups_never_drawn">Non ancora estratto</string>
+
+    <!-- Gruppo -->
+    <string name="group_name_label">Nome del gruppo</string>
+    <string name="group_budget_label">Budget del regalo (facoltativo)</string>
+    <string name="group_budget_hint">es. 20 €</string>
+    <string name="group_participants">Partecipanti</string>
+    <string name="group_add_hint">Aggiungi un nome o incolla tutta la lista</string>
+    <string name="group_add">Aggiungi</string>
+    <string name="group_restrictions">Chi non può pescare chi</string>
+    <plurals name="group_restrictions_count">
+        <item quantity="one">%1$d regola</item>
+        <item quantity="other">%1$d regole</item>
+    </plurals>
+    <string name="group_restrictions_none">Nessuna regola</string>
+    <string name="group_draw">Estrai i nomi</string>
+    <string name="group_needs_more">Aggiungi almeno %1$d persone per estrarre.</string>
+
+    <!-- Partecipante -->
+    <string name="participant_title">Modifica persona</string>
+    <string name="participant_name">Nome</string>
+    <string name="participant_wishes">Idee regalo</string>
+    <string name="participant_wishes_hint">Chi pesca questa persona vedrà queste idee</string>
+    <string name="participant_wish_hint">Idea %1$d</string>
+    <plurals name="participant_wishes_count">
+        <item quantity="one">%1$d idea</item>
+        <item quantity="other">%1$d idee</item>
+    </plurals>
+    <string name="participant_remove">Rimuovi dal gruppo</string>
+
+    <!-- Regole -->
+    <string name="restrictions_title">Regole dell’estrazione</string>
+    <string name="restrictions_body">Scegli due persone che non devono mai pescarsi a vicenda: coppie, fratelli, chi si scambia già i regali.</string>
+    <string name="restrictions_empty">Nessuna regola. Tutti possono pescare tutti.</string>
+    <string name="restrictions_add">Aggiungi una regola</string>
+    <string name="restrictions_pick">Scegli due persone</string>
+    <string name="restrictions_pair">%1$s e %2$s</string>
+    <string name="restrictions_remove">Rimuovi regola</string>
+
+    <!-- Estrazione -->
+    <string name="draw_suspense">Estrazione in corso…</string>
+    <string name="draw_error_too_few">Servono almeno %1$d persone. In due, entrambi sanno già chi hanno pescato.</string>
+    <string name="draw_error_too_many">Fino a %1$d persone per gruppo.</string>
+    <string name="draw_error_duplicate">Due persone si chiamano “%1$s”. Distinguile (Anna M., Anna S.) perché il risultato sia chiaro.</string>
+    <string name="draw_error_impossible">Con queste regole l’estrazione è impossibile. Rimuovine una e riprova.</string>
+    <string name="draw_error_title">Non si può ancora estrarre</string>
+    <string name="draw_dismiss">Ho capito</string>
+
+    <!-- Rivelazione dal vivo -->
+    <string name="reveal_title">Passa il telefono</string>
+    <string name="reveal_body">Ognuno tocca il proprio nome, vede chi ha pescato e passa il telefono.</string>
+    <string name="reveal_confirm_title">Sei %1$s?</string>
+    <string name="reveal_confirm_body">Tocca Sì solo se hai il telefono in mano.</string>
+    <string name="reveal_confirm_yes">Sì, mostra</string>
+    <string name="reveal_confirm_no">Non sono io</string>
+    <string name="reveal_you_got">Farai un regalo a</string>
+    <string name="reveal_budget">Budget: %1$s</string>
+    <string name="reveal_wishes">Idee regalo</string>
+    <string name="reveal_no_wishes">Nessuna idea regalo aggiunta.</string>
+    <string name="reveal_hide">Fatto: nascondi e passa</string>
+    <plurals name="reveal_remaining">
+        <item quantity="one">Manca ancora %1$d persona</item>
+        <item quantity="other">Mancano ancora %1$d persone</item>
+    </plurals>
+    <string name="reveal_all_done">Tutti hanno visto il proprio nome.</string>
+    <string name="reveal_finish">Fine</string>
+    <string name="reveal_discard_title">Annullare questa estrazione?</string>
+    <plurals name="reveal_discard_body">
+        <item quantity="one">%1$d persona ha già visto il proprio nome. Tornando indietro si ricomincia da capo.</item>
+        <item quantity="other">%1$d persone hanno già visto il proprio nome. Tornando indietro si ricomincia da capo.</item>
+    </plurals>
+    <string name="reveal_discard_confirm">Annulla estrazione</string>
+
+    <!-- Modalità di rivelazione -->
+    <string name="mode_title">Come lo scopriranno tutti?</string>
+    <string name="mode_links">Invia un link a ognuno</string>
+    <string name="mode_links_body">Ognuno lo apre sul proprio telefono. Ideale quando il gruppo non è insieme.</string>
+    <string name="mode_phone">Passa il telefono</string>
+    <string name="mode_phone_body">Tutti nella stessa stanza, uno alla volta.</string>
+    <string name="redraw_title">Estrarre di nuovo?</string>
+    <plurals name="redraw_body">
+        <item quantity="one">%1$d persona ha già ricevuto un link dall’ultima estrazione. Deve ricevere quello nuovo, altrimenti due regali potrebbero andare alla stessa persona.</item>
+        <item quantity="other">%1$d persone hanno già ricevuto un link dall’ultima estrazione. Devono ricevere quelli nuovi, altrimenti due regali potrebbero andare alla stessa persona.</item>
+    </plurals>
+    <string name="redraw_confirm">Estrai di nuovo</string>
+
+    <!-- Link -->
+    <string name="links_title">Invia i link</string>
+    <string name="links_body">Invia ogni link solo alla persona indicata. Non vedrai chi ha pescato chi.</string>
+    <string name="links_progress">%1$d di %2$d inviati</string>
+    <string name="links_send">Invia</string>
+    <string name="links_resend">Invia di nuovo</string>
+    <string name="links_sent_toggle">Segna come inviato</string>
+    <string name="links_stale_title">Il gruppo è cambiato dopo l’estrazione</string>
+    <string name="links_stale_body">Questi link non includono le modifiche. Estrai di nuovo per creare link aggiornati.</string>
+    <string name="links_redraw">Estrai di nuovo</string>
+    <string name="links_all_sent">Tutti i link sono stati inviati. 🎁</string>
+    <string name="links_done">Fatto</string>
+    <string name="group_links_card">Link dell’estrazione</string>
+    <string name="group_links_stale">Non aggiornati: estrai di nuovo</string>
+    <string name="share_message">🎁 %1$s, è arrivato il tuo Babbo Natale segreto per %2$s! Aprilo solo tu: %3$s</string>
+    <string name="share_message_no_event">🎁 %1$s, è arrivato il tuo Babbo Natale segreto! Aprilo solo tu: %2$s</string>
+    <string name="share_chooser">Invia a %1$s</string>
+
+    <!-- Menu -->
+    <string name="menu_more">Altre opzioni</string>
+    <string name="menu_privacy_options">Opzioni sulla privacy</string>
+    <string name="menu_privacy_policy">Informativa sulla privacy</string>
+    <string name="menu_language">Lingua</string>
+    <string name="language_system">Lingua di sistema</string>
+
+    <!-- Guida -->
+    <string name="group_add_supporting">Separa i nomi con le virgole o scrivine uno per riga</string>
+    <plurals name="group_add_detected">
+        <item quantity="one">%1$d nome trovato</item>
+        <item quantity="other">%1$d nomi trovati</item>
+    </plurals>
+    <string name="participant_add_wishes_hint">Tocca per aggiungere idee regalo</string>
+    <string name="guide_title">Come funziona</string>
+    <string name="guide_step1">Aggiungi tutti. Puoi incollare l’intera lista in una volta, con i nomi separati da virgole.</string>
+    <string name="guide_step2">Facoltativo: tocca una persona per aggiungere idee regalo e usa le regole perché le coppie non si peschino a vicenda.</string>
+    <string name="guide_step3">Tocca Estrai i nomi e scegli: un link privato per ognuno, oppure passa il telefono.</string>
+    <string name="help_group_title">Crea il gruppo</string>
+    <string name="help_group_body">Crea un gruppo e aggiungi i partecipanti. Scrivi un nome alla volta o incolla l’intera lista in una volta, separando i nomi con virgole, punti e virgola o uno per riga. Il gruppo resta salvato per l’anno prossimo.</string>
+    <string name="help_wishes_title">Idee regalo e budget</string>
+    <string name="help_wishes_body">Tocca una persona per scrivere fino a 3 idee regalo. Chi pesca quella persona vede le idee insieme al nome. Se indichi il budget del regalo, lo vedono tutti.</string>
+    <string name="help_rules_title">Chi non può pescare chi</string>
+    <string name="help_rules_body">Usa le regole per coppie, fratelli o chi si scambia già i regali. L’estrazione le rispetta sempre. Se le regole rendono impossibile l’estrazione, l’app te lo dice invece di tirare a indovinare.</string>
+    <string name="help_links_title">Invia un link a ognuno</string>
+    <string name="help_links_body">Dopo l’estrazione, tocca Invia accanto a ogni nome e condividi il link con l’app di messaggistica che preferisci. La persona lo apre nel browser e vede chi ha pescato. Nessuno deve installare nulla. Invia ogni link solo alla persona indicata.</string>
+    <string name="help_phone_title">Passa il telefono</string>
+    <string name="help_phone_body">Con tutti insieme, ognuno tocca il proprio nome, conferma di essere lui, vede chi ha pescato e passa il telefono. Questa estrazione non viene salvata: se esci prima che tutti abbiano visto, dovrai estrarre di nuovo.</string>
+    <string name="help_privacy_title">Nessuno sbircia</string>
+    <string name="help_privacy_body">Nemmeno chi organizza vede chi ha pescato chi. Ogni risultato viaggia dentro il proprio link e non viene mai salvato su un server.</string>
+    <string name="help_changes_title">Hai cambiato il gruppo dopo l’estrazione?</string>
+    <string name="help_changes_body">Se qualcuno entra o esce, o cambia un’idea regalo, i vecchi link non sono più validi. L’app ti avvisa e ti chiede di estrarre di nuovo. Ricorda di inviare i nuovi link a tutti.</string>
+
+    <!-- Comuni -->
+    <string name="common_back">Indietro</string>
+    <string name="common_cancel">Annulla</string>
+    <string name="common_create">Crea</string>
+    <string name="common_delete">Elimina</string>
+    <string name="common_save">Salva</string>
+</resources>

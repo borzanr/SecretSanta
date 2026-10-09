@@ -68,6 +68,15 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    // O seletor de idioma do app (AppLanguage) troca o locale em tempo de execução.
+    // Com o split por idioma ligado, a Play só instala os idiomas do aparelho, e
+    // escolher outro dentro do app cairia de volta no inglês.
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
     buildFeatures {
         compose = true
         buildConfig = true

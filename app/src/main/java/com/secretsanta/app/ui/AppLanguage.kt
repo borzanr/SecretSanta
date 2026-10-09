@@ -20,7 +20,7 @@ object AppLanguage {
     /** Vazio = seguir o idioma do sistema. */
     const val SYSTEM = ""
 
-    val OPTIONS: List<String> = listOf(SYSTEM, "pt-BR", "en", "es")
+    val OPTIONS: List<String> = listOf(SYSTEM, "pt-BR", "en", "es", "de", "fr", "it")
 
     private const val PREFS = "app_language"
     private const val KEY_TAG = "tag"
@@ -57,6 +57,9 @@ object AppLanguage {
         "pt-BR" -> "Português (Brasil)"
         "en" -> "English"
         "es" -> "Español"
+        "de" -> "Deutsch"
+        "fr" -> "Français"
+        "it" -> "Italiano"
         else -> null
     }
 }

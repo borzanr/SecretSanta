@@ -43,5 +43,8 @@ fun Group.buildLinkDraw(
 fun revealLanguage(languageTag: String): String = when (languageTag.take(2).lowercase()) {
     "pt" -> "pt"
     "es" -> "es"
+    "de" -> "de"
+    "fr" -> "fr"
+    "it" -> "it"
     else -> "en"
 }

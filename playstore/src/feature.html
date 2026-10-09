@@ -20,7 +20,10 @@
   var T = {
     pt: { art: "key-pt.jpg", t: "Sorteie. <em>Ninguém espia.</em>", s: "Amigo secreto sem e-mail e sem cadastro" },
     en: { art: "key-en.jpg", t: "Draw names. <em>Nobody peeks.</em>", s: "Secret Santa with no email and no signup" },
-    es: { art: "key-en.jpg", t: "Sortea. <em>Nadie espía.</em>", s: "Amigo invisible sin correo y sin registro" }
+    es: { art: "key-en.jpg", t: "Sortea. <em>Nadie espía.</em>", s: "Amigo invisible sin correo y sin registro" },
+    de: { art: "key-en.jpg", t: "Auslosen. <em>Keiner linst.</em>", s: "Wichteln ohne E-Mail und ohne Anmeldung" },
+    fr: { art: "key-en.jpg", t: "Tire au sort. <em>Zéro triche.</em>", s: "Père Noël secret sans e-mail ni inscription" },
+    it: { art: "key-en.jpg", t: "Estrai. <em>Nessuno sbircia.</em>", s: "Babbo Natale segreto senza email né registrazione" }
   };
   var lang = new URLSearchParams(location.search).get("lang");
   var t = T[lang] || T.pt;

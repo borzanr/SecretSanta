@@ -185,7 +185,7 @@ MADE FOR REAL GROUPS
 • Office parties, family Christmas and holiday gift exchanges with friends
 • Groups saved for next year
 • Updated links if you change the group after drawing
-• English, Portuguese and Spanish
+• English, German, French, Italian, Spanish and Portuguese
 
 PRIVATE BY DESIGN
 Names and gift ideas stay on your phone. The result travels inside each link, and the page that opens it never sends it to a server.
@@ -230,7 +230,7 @@ FEITO PARA GRUPOS DE VERDADE
 • Amigo secreto da família, do trabalho, da turma, amigo oculto de Natal
 • Grupos salvos para o ano que vem
 • Links atualizados se você mudar o grupo depois do sorteio
-• Em português, inglês e espanhol
+• Em português, inglês, espanhol, alemão, francês e italiano
 
 PRIVADO DE VERDADE
 Os nomes e as sugestões ficam no seu celular. O resultado viaja dentro de cada link, e a página que abre o link nunca envia o resultado para um servidor.
@@ -275,10 +275,162 @@ HECHO PARA GRUPOS DE VERDAD
 • Navidad en familia, fiesta de la oficina, intercambio de regalos con amigos
 • Grupos guardados para el año que viene
 • Enlaces actualizados si cambias el grupo después del sorteo
-• En español, inglés y portugués
+• En español, inglés, portugués, alemán, francés e italiano
 
 PRIVADO DE VERDAD
 Los nombres y las ideas de regalo quedan en tu teléfono. El resultado viaja dentro de cada enlace, y la página que lo abre nunca lo envía a un servidor.
 
 Gratis, con anuncios.
 ```
+
+> **es-419 — proposta de troca de termo (out/2026).** "Amigo invisible" é o termo
+> da Espanha (e da Argentina/Uruguai). Na maior parte da América Latina busca-se
+> "amigo secreto" (Colômbia, Chile, Peru, Venezuela) ou "intercambio de regalos"
+> (México). Como a Espanha ainda está fora da distribuição, a ficha **es-419**
+> rende mais com:
+>
+> - **Título:** `Amigo Secreto: Sorteo`
+> - **Descripción breve:** `Sorteo de amigo secreto gratis. Sin correo ni registro. Sortea al instante.`
+> - **Primeira frase da descrição:** `La forma más fácil de organizar el amigo secreto (también llamado intercambio de regalos o amigo invisible).`
+>
+> A ficha **es-ES** fica como está. Dentro do app nada muda.
+
+### de-DE
+
+**Titel** (30)
+```
+Wichteln: Namen auslosen
+```
+
+**Kurzbeschreibung** (80)
+```
+Wichteln kostenlos auslosen. Ohne E-Mail, ohne Anmeldung. In Sekunden fertig.
+```
+
+**Vollständige Beschreibung**
+```
+Die einfachste Art, das Wichteln (Secret Santa) zu organisieren. Ohne E-Mail-Adressen, ohne Konto, ohne Bezahlschranke – und nicht einmal wer organisiert, erfährt, wer wen gezogen hat.
+
+SO FUNKTIONIERT ES
+1. Erstelle eine Gruppe und füge alle hinzu. Die ganze Liste aus dem Gruppenchat lässt sich auf einmal einfügen.
+2. Wenn du magst, trage ein Geschenkbudget und ein paar Geschenkideen für jede Person ein.
+3. Lege fest, wer wen nicht ziehen darf: Paare, Geschwister, alle, die sich ohnehin beschenken.
+4. Lose aus und wähle, wie alle ihr Ergebnis erfahren.
+
+EIN PRIVATER LINK FÜR JEDEN
+Schicke jeder Person ihren eigenen Link über eine beliebige Messenger-App. Sie tippt darauf, öffnet ihr Geschenk direkt im Browser und sieht, wen sie beschenkt – samt Geschenkideen und Budget. Niemand muss etwas installieren.
+
+Der Bildschirm des Organisators zeigt nur, wem der Link schon geschickt wurde – nie die Paarungen. Endlich kann auch mitspielen, wer organisiert.
+
+ODER DAS HANDY WEITERGEBEN
+Alle im selben Raum? Jede Person tippt auf ihren eigenen Namen, sieht ihr Los ganz privat und gibt das Handy weiter.
+
+EINE AUSLOSUNG, DIE IMMER AUFGEHT
+Jeder schenkt genau einmal und wird genau einmal beschenkt. Niemand zieht sich selbst, niemand bleibt übrig, und deine Regeln werden immer eingehalten. Machen die Regeln eine Auslosung unmöglich, sagt die App es dir, statt zu raten.
+
+FÜR ECHTE GRUPPEN GEMACHT
+• Weihnachtsfeier im Büro, Wichteln in der Familie, im Verein oder im Freundeskreis
+• Gruppen bleiben für nächstes Jahr gespeichert
+• Aktuelle Links, wenn du die Gruppe nach der Auslosung änderst
+• Auf Deutsch, Englisch, Französisch, Italienisch, Spanisch und Portugiesisch
+
+PRIVAT VON GRUND AUF
+Namen und Geschenkideen bleiben auf deinem Handy. Das Ergebnis steckt in jedem Link, und die Seite, die ihn öffnet, schickt es nie an einen Server.
+
+Kostenlos, durch Werbung finanziert.
+```
+
+### fr-FR e fr-CA
+
+**Titre** (30)
+```
+Père Noël Secret : Tirage
+```
+
+**Brève description** (80)
+```
+Tirage au sort de Père Noël secret gratuit. Sans e-mail, sans inscription.
+```
+
+**Description complète**
+```
+La façon la plus simple d’organiser un Père Noël secret (Secret Santa). Sans adresses e-mail, sans compte, sans rien payer — et même la personne qui organise ne sait pas qui a tiré qui.
+
+COMMENT ÇA MARCHE
+1. Crée un groupe et ajoute tout le monde. Tu peux coller d’un coup toute la liste de ta conversation de groupe.
+2. Si tu veux, ajoute un budget cadeau et quelques idées cadeaux pour chacun.
+3. Indique qui ne peut pas tirer qui : couples, frères et sœurs, ceux qui s’offrent déjà des cadeaux.
+4. Lance le tirage au sort, puis choisis comment chacun découvre son résultat.
+
+UN LIEN PRIVÉ POUR CHACUN
+Envoie à chaque personne son propre lien par l’appli de messagerie de ton choix. Elle le touche, ouvre son cadeau directement dans le navigateur et voit à qui elle offre, avec les idées cadeaux et le budget. Personne n’a besoin d’installer quoi que ce soit.
+
+L’écran de l’organisateur montre seulement à qui le lien a déjà été envoyé — jamais les binômes. Enfin, l’organisateur peut jouer lui aussi.
+
+OU FAIS PASSER LE TÉLÉPHONE
+Tout le monde dans la même pièce ? Chacun touche son prénom, découvre son résultat en privé et passe le téléphone au suivant.
+
+UN TIRAGE QUI TOMBE TOUJOURS JUSTE
+Chacun offre exactement un cadeau et en reçoit exactement un. Personne ne se tire soi-même, personne n’est oublié, et tes règles sont toujours respectées. Si tes règles rendent le tirage impossible, l’appli te le dit au lieu de deviner.
+
+PENSÉ POUR DE VRAIS GROUPES
+• Noël en famille, repas de fin d’année au bureau, échange de cadeaux entre amis
+• Groupes enregistrés pour l’année prochaine
+• Liens mis à jour si tu modifies le groupe après le tirage
+• En français, anglais, allemand, italien, espagnol et portugais
+
+PRIVÉ PAR CONCEPTION
+Les prénoms et les idées cadeaux restent sur ton téléphone. Le résultat voyage dans chaque lien, et la page qui l’ouvre ne l’envoie jamais à un serveur.
+
+Gratuit, financé par la publicité.
+```
+
+### it-IT
+
+**Titolo** (30)
+```
+Babbo Natale Segreto: Estrai
+```
+
+**Descrizione breve** (80)
+```
+Estrazione Babbo Natale segreto gratis. Senza email, senza registrazione.
+```
+
+**Descrizione completa**
+```
+Il modo più semplice per organizzare il Babbo Natale segreto (Secret Santa). Senza indirizzi email, senza account, senza pagare nulla — e nemmeno chi organizza scopre chi ha pescato chi.
+
+COME FUNZIONA
+1. Crea un gruppo e aggiungi tutti. Puoi incollare in una volta l’intera lista dalla chat di gruppo.
+2. Se vuoi, aggiungi un budget per il regalo e qualche idea regalo per ogni persona.
+3. Indica chi non può pescare chi: coppie, fratelli, chi si scambia già i regali.
+4. Estrai i nomi e scegli come ognuno scopre il risultato.
+
+UN LINK PRIVATO PER OGNUNO
+Invia a ogni persona il proprio link con l’app di messaggistica che preferisci. Lo tocca, apre il regalo direttamente nel browser e vede a chi deve fare il regalo, con le idee regalo e il budget. Nessuno deve installare nulla.
+
+Lo schermo di chi organizza mostra solo a chi è già stato inviato il link — mai gli abbinamenti. Finalmente anche chi organizza può giocare.
+
+OPPURE PASSA IL TELEFONO
+Tutti nella stessa stanza? Ognuno tocca il proprio nome, vede in privato chi ha pescato e passa il telefono al prossimo.
+
+UN’ESTRAZIONE CHE TORNA SEMPRE
+Ognuno fa esattamente un regalo e ne riceve esattamente uno. Nessuno pesca se stesso, nessuno resta fuori, e le tue regole vengono sempre rispettate. Se le regole rendono impossibile l’estrazione, l’app te lo dice invece di tirare a indovinare.
+
+FATTA PER GRUPPI VERI
+• Natale in famiglia, festa in ufficio, scambio di regali tra amici
+• Gruppi salvati per l’anno prossimo
+• Link aggiornati se cambi il gruppo dopo l’estrazione
+• In italiano, inglese, tedesco, francese, spagnolo e portoghese
+
+PRIVATA PER COME È FATTA
+I nomi e le idee regalo restano sul tuo telefono. Il risultato viaggia dentro ogni link, e la pagina che lo apre non lo invia mai a un server.
+
+Gratis, con pubblicità.
+```
+
+> **Capturas de/fr/it.** Os textos dos slides já estão em `src/shot.html` e
+> `src/feature.html`, mas faltam os prints reais em `src/shots-de|fr|it/`
+> (`links`, `reveal`, `group`, `rules`, `mode`). Depois de capturá-los no
+> aparelho, inclua `de fr it` no laço de `render.sh`.

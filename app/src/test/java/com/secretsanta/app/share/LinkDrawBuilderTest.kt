@@ -84,11 +84,14 @@ class LinkDrawBuilderTest {
     }
 
     @Test
-    fun `idioma do aparelho vira um dos tres idiomas da pagina`() {
+    fun `idioma do aparelho vira um dos idiomas da pagina`() {
         assertEquals("pt", revealLanguage("pt-BR"))
         assertEquals("pt", revealLanguage("pt"))
         assertEquals("es", revealLanguage("es-419"))
         assertEquals("en", revealLanguage("en-US"))
-        assertEquals("en", revealLanguage("fr-FR"))
+        assertEquals("de", revealLanguage("de-AT"))
+        assertEquals("fr", revealLanguage("fr-FR"))
+        assertEquals("it", revealLanguage("it-IT"))
+        assertEquals("en", revealLanguage("ja-JP"))
     }
 }

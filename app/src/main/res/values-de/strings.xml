@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wichteln</string>
+
+    <!-- Gruppenliste -->
+    <string name="groups_title">Deine Gruppen</string>
+    <string name="groups_empty_title">Noch keine Gruppen</string>
+    <string name="groups_empty_body">Erstelle eine Gruppe, trage alle Namen ein und lose aus. Ohne E-Mail, ohne Anmeldung.</string>
+    <string name="groups_new">Neue Gruppe</string>
+    <string name="groups_name_hint">Gruppenname (z. B. Weihnachtsfeier)</string>
+    <string name="groups_delete_title">Diese Gruppe löschen?</string>
+    <string name="groups_delete_body">%1$s und alle Personen darin werden von diesem Handy gelöscht.</string>
+    <plurals name="groups_people">
+        <item quantity="one">%1$d Person</item>
+        <item quantity="other">%1$d Personen</item>
+    </plurals>
+    <string name="groups_never_drawn">Noch nicht ausgelost</string>
+
+    <!-- Gruppe -->
+    <string name="group_name_label">Gruppenname</string>
+    <string name="group_budget_label">Geschenkbudget (optional)</string>
+    <string name="group_budget_hint">z. B. 20 €</string>
+    <string name="group_participants">Personen</string>
+    <string name="group_add_hint">Namen eingeben oder ganze Liste einfügen</string>
+    <string name="group_add">Hinzufügen</string>
+    <string name="group_restrictions">Wer wen nicht ziehen darf</string>
+    <plurals name="group_restrictions_count">
+        <item quantity="one">%1$d Regel</item>
+        <item quantity="other">%1$d Regeln</item>
+    </plurals>
+    <string name="group_restrictions_none">Keine Regeln</string>
+    <string name="group_draw">Auslosen</string>
+    <string name="group_needs_more">Füge mindestens %1$d Personen hinzu, um auszulosen.</string>
+
+    <!-- Person -->
+    <string name="participant_title">Person bearbeiten</string>
+    <string name="participant_name">Name</string>
+    <string name="participant_wishes">Geschenkideen</string>
+    <string name="participant_wishes_hint">Wer diese Person zieht, sieht diese Ideen</string>
+    <string name="participant_wish_hint">Idee %1$d</string>
+    <plurals name="participant_wishes_count">
+        <item quantity="one">%1$d Idee</item>
+        <item quantity="other">%1$d Ideen</item>
+    </plurals>
+    <string name="participant_remove">Aus der Gruppe entfernen</string>
+
+    <!-- Regeln -->
+    <string name="restrictions_title">Regeln für die Auslosung</string>
+    <string name="restrictions_body">Wähle zwei Personen, die sich nie gegenseitig ziehen sollen – Paare, Geschwister, alle, die sich ohnehin beschenken.</string>
+    <string name="restrictions_empty">Noch keine Regeln. Jeder kann jeden ziehen.</string>
+    <string name="restrictions_add">Regel hinzufügen</string>
+    <string name="restrictions_pick">Zwei Personen wählen</string>
+    <string name="restrictions_pair">%1$s und %2$s</string>
+    <string name="restrictions_remove">Regel entfernen</string>
+
+    <!-- Auslosung -->
+    <string name="draw_suspense">Es wird ausgelost…</string>
+    <string name="draw_error_too_few">Du brauchst mindestens %1$d Personen. Zu zweit wissen beide schon, wen sie haben.</string>
+    <string name="draw_error_too_many">Bis zu %1$d Personen pro Gruppe.</string>
+    <string name="draw_error_duplicate">Zwei Personen heißen „%1$s“. Unterscheide sie (Anna M., Anna S.), damit das Ergebnis eindeutig ist.</string>
+    <string name="draw_error_impossible">Mit diesen Regeln ist keine Auslosung möglich. Entferne eine und versuche es noch einmal.</string>
+    <string name="draw_error_title">Auslosen geht noch nicht</string>
+    <string name="draw_dismiss">Verstanden</string>
+
+    <!-- Aufdecken vor Ort -->
+    <string name="reveal_title">Handy weitergeben</string>
+    <string name="reveal_body">Jede Person tippt auf ihren eigenen Namen, sieht, wen sie gezogen hat, und gibt das Handy weiter.</string>
+    <string name="reveal_confirm_title">Bist du %1$s?</string>
+    <string name="reveal_confirm_body">Tippe nur auf Ja, wenn du das Handy in der Hand hast.</string>
+    <string name="reveal_confirm_yes">Ja, zeigen</string>
+    <string name="reveal_confirm_no">Das bin ich nicht</string>
+    <string name="reveal_you_got">Du beschenkst</string>
+    <string name="reveal_budget">Budget: %1$s</string>
+    <string name="reveal_wishes">Geschenkideen</string>
+    <string name="reveal_no_wishes">Keine Geschenkideen eingetragen.</string>
+    <string name="reveal_hide">Fertig – verbergen und weitergeben</string>
+    <plurals name="reveal_remaining">
+        <item quantity="one">Noch %1$d Person</item>
+        <item quantity="other">Noch %1$d Personen</item>
+    </plurals>
+    <string name="reveal_all_done">Alle haben ihren Namen gesehen.</string>
+    <string name="reveal_finish">Beenden</string>
+    <string name="reveal_discard_title">Diese Auslosung verwerfen?</string>
+    <plurals name="reveal_discard_body">
+        <item quantity="one">%1$d Person hat ihren Namen schon gesehen. Wenn du zurückgehst, beginnt alles von vorn.</item>
+        <item quantity="other">%1$d Personen haben ihre Namen schon gesehen. Wenn du zurückgehst, beginnt alles von vorn.</item>
+    </plurals>
+    <string name="reveal_discard_confirm">Verwerfen</string>
+
+    <!-- Art des Aufdeckens -->
+    <string name="mode_title">Wie erfahren es alle?</string>
+    <string name="mode_links">Jeder Person einen Link schicken</string>
+    <string name="mode_links_body">Jede Person öffnet ihn auf dem eigenen Handy. Ideal, wenn die Gruppe nicht zusammen ist.</string>
+    <string name="mode_phone">Handy weitergeben</string>
+    <string name="mode_phone_body">Alle im selben Raum, einer nach dem anderen.</string>
+    <string name="redraw_title">Neu auslosen?</string>
+    <plurals name="redraw_body">
+        <item quantity="one">%1$d Person hat schon einen Link aus der letzten Auslosung. Sie braucht den neuen, sonst könnten zwei Geschenke an dieselbe Person gehen.</item>
+        <item quantity="other">%1$d Personen haben schon Links aus der letzten Auslosung. Sie brauchen die neuen, sonst könnten zwei Geschenke an dieselbe Person gehen.</item>
+    </plurals>
+    <string name="redraw_confirm">Neu auslosen</string>
+
+    <!-- Links -->
+    <string name="links_title">Links verschicken</string>
+    <string name="links_body">Schicke jeden Link nur an die Person, deren Name dabeisteht. Du siehst nicht, wer wen gezogen hat.</string>
+    <string name="links_progress">%1$d von %2$d verschickt</string>
+    <string name="links_send">Senden</string>
+    <string name="links_resend">Erneut senden</string>
+    <string name="links_sent_toggle">Als gesendet markieren</string>
+    <string name="links_stale_title">Die Gruppe wurde nach der Auslosung geändert</string>
+    <string name="links_stale_body">Diese Links enthalten die Änderungen nicht. Lose neu aus, um aktuelle Links zu erstellen.</string>
+    <string name="links_redraw">Neu auslosen</string>
+    <string name="links_all_sent">Alle Links wurden verschickt. 🎁</string>
+    <string name="links_done">Fertig</string>
+    <string name="group_links_card">Links der Auslosung</string>
+    <string name="group_links_stale">Veraltet – neu auslosen</string>
+    <string name="share_message">🎁 %1$s, dein Wichtel-Los für %2$s ist da! Bitte nur selbst öffnen: %3$s</string>
+    <string name="share_message_no_event">🎁 %1$s, dein Wichtel-Los ist da! Bitte nur selbst öffnen: %2$s</string>
+    <string name="share_chooser">An %1$s senden</string>
+
+    <!-- Menü -->
+    <string name="menu_more">Weitere Optionen</string>
+    <string name="menu_privacy_options">Datenschutzoptionen</string>
+    <string name="menu_privacy_policy">Datenschutzerklärung</string>
+    <string name="menu_language">Sprache</string>
+    <string name="language_system">Systemsprache</string>
+
+    <!-- Anleitung -->
+    <string name="group_add_supporting">Namen mit Kommas trennen oder einen pro Zeile schreiben</string>
+    <plurals name="group_add_detected">
+        <item quantity="one">%1$d Name gefunden</item>
+        <item quantity="other">%1$d Namen gefunden</item>
+    </plurals>
+    <string name="participant_add_wishes_hint">Tippen, um Geschenkideen hinzuzufügen</string>
+    <string name="guide_title">So funktioniert es</string>
+    <string name="guide_step1">Füge alle hinzu. Du kannst die ganze Liste auf einmal einfügen, die Namen durch Kommas getrennt.</string>
+    <string name="guide_step2">Optional: Tippe auf eine Person, um Geschenkideen einzutragen, und nutze die Regeln, damit Paare sich nicht gegenseitig ziehen.</string>
+    <string name="guide_step3">Tippe auf Auslosen und wähle: ein privater Link für jede Person oder das Handy herumgeben.</string>
+    <string name="help_group_title">Gruppe zusammenstellen</string>
+    <string name="help_group_body">Erstelle eine Gruppe und füge die Personen hinzu. Gib einen Namen nach dem anderen ein oder füge die ganze Liste auf einmal ein, getrennt durch Kommas, Semikolons oder einen Namen pro Zeile. Die Gruppe bleibt für nächstes Jahr gespeichert.</string>
+    <string name="help_wishes_title">Geschenkideen und Budget</string>
+    <string name="help_wishes_body">Tippe auf eine Person, um bis zu 3 Geschenkideen einzutragen. Wer diese Person zieht, sieht die Ideen zusammen mit dem Namen. Wenn du ein Geschenkbudget einträgst, sehen es alle.</string>
+    <string name="help_rules_title">Wer wen nicht ziehen darf</string>
+    <string name="help_rules_body">Nutze Regeln für Paare, Geschwister oder alle, die sich ohnehin beschenken. Die Auslosung hält sich immer daran. Machen die Regeln eine Auslosung unmöglich, sagt die App es dir, statt zu raten.</string>
+    <string name="help_links_title">Jeder Person einen Link schicken</string>
+    <string name="help_links_body">Tippe nach der Auslosung neben jedem Namen auf Senden und teile den Link über eine beliebige Messenger-App. Die Person öffnet ihn im Browser und sieht, wen sie gezogen hat. Niemand muss etwas installieren. Schicke jeden Link nur an die Person, deren Name dabeisteht.</string>
+    <string name="help_phone_title">Handy weitergeben</string>
+    <string name="help_phone_body">Wenn alle zusammen sind, tippt jede Person auf ihren eigenen Namen, bestätigt, dass sie es ist, sieht, wen sie gezogen hat, und gibt das Handy weiter. Diese Auslosung wird nicht gespeichert: Wenn du sie verlässt, bevor alle dran waren, musst du neu auslosen.</string>
+    <string name="help_privacy_title">Niemand schaut heimlich</string>
+    <string name="help_privacy_body">Nicht einmal wer organisiert, sieht, wer wen gezogen hat. Jedes Ergebnis steckt in seinem eigenen Link und wird nie auf einem Server gespeichert.</string>
+    <string name="help_changes_title">Gruppe nach der Auslosung geändert?</string>
+    <string name="help_changes_body">Kommt jemand dazu, fällt jemand weg oder ändert sich eine Geschenkidee, sind die alten Links veraltet. Die App warnt dich und bittet dich, neu auszulosen. Denk daran, allen die neuen Links zu schicken.</string>
+
+    <!-- Allgemein -->
+    <string name="common_back">Zurück</string>
+    <string name="common_cancel">Abbrechen</string>
+    <string name="common_create">Erstellen</string>
+    <string name="common_delete">Löschen</string>
+    <string name="common_save">Speichern</string>
+</resources>
